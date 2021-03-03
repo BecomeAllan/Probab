@@ -221,25 +221,6 @@ $$P(B_n|A)=\frac{\overbrace{b}^{\text{Quantas bolas podem ser a n-ésima preta}}
 
 $$P(A \cap B_n)=P(A).P(B_n|A) = \frac{{r \choose n-1}}{{b+r \choose n-1}}.\frac{b}{b+r-(n-1)} $$
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-$$\begin{aligned}
-P(A^c_1 \cap A^c_2 \cap ... \cap A^c_{n-1} \cap A_n) &= P(A^c_1).P(A^c_2|A^c_1)...P(A^c_{n-1}|A^c_1\cap...\cap A^c_{n-2}).P(A_{n})\\
-&=\frac{{r \choose n-1}\frac{1}{r}.\frac{1}{r-1}.\frac{1}{r-2}...\frac{1}{r-(n-1)}.{b \choose 1}\frac{1}{b}}{{r+b \choose n-1}} \\
-\end{aligned}$$
-
-
 # Questão 8
 
 ## a)
