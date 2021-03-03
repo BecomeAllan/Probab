@@ -1,0 +1,340 @@
+---
+title: "Lista 2"
+author: "Allan"
+date: "02/03/2021"
+output: 
+  pdf_document: 
+    extra_dependencies: ["mathtools"]
+    latex_engine: pdflatex
+    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Questão 1
+
+(Com reposisao,  E importa a ordem)
+$$\Omega = \{(x_1,\dots,x_n): x_i \in \{.\;,-\}, i =1,...,n\}$$
+
+## a)
+
+$|A| = \underbrace{2.2.2\;...\;2}_{n} = 2^n$
+
+## b)
+
+$|B| = 2 \text{ ou } 2^2 \text{ ou } 2^3 \dots 2^n$
+
+Quantas configurações podem ser de n ou menos simbolos:
+
+$$\begin{aligned}
+|B| = \sum^n_{j=1}2^j &= 2+2^2+\dots+2^n\\
+s_n&= 2+2^2+\dots+2^n\\ 
+2s_n&= 2^2+2^3+\dots+2^{n+1}\\
+2s_n  - s_n &= -2+ 2^{n+1}\\
+sn &= 2(2^n-1)
+\end{aligned}$$
+
+
+# Questão 2
+
+
+(Sem reposisao,  e importa a ordem)
+$$\Omega = \{(x_1,\dots,x_r): x_i \in \{1,...,n\},\;i=1,...,r ,\; x_i \neq x_j,\; \forall\;i\neq j\}$$
+
+
+$$A_i=\{\text{Obter sucesso na i-ésima tentativa}\}$$
+
++ $\frac{F}{1^o}.\frac{F}{2^o}.\frac{F}{3^o}...\frac{F}{r-1}.\frac{S}{r}$
+
+$$P(A_1^c \cap A_2^c\cap...\cap A_{r-1}^c \cap A_r)=\underbrace{\frac{n-1}{n}}_{P(A_1^c)}.\underbrace{\frac{n-2}{n-1}}_{P(A_2^c|A_1^c)}.\underbrace{\frac{n-3}{n-2}}_{P(A_3^c|A_1^c \cap A_2^c)}...\frac{n-(r-1)}{n-(r-2)}.\underbrace{\frac{1}{n-(r-1)}}_{P(A_{r}|A_{1}^c \cap ...\cap A_{r-1}^c )} = \frac{1}{n}$$
+
+
+# Questão 3
+
+(Sem reposisao,  E importa a ordem)
+$x_i=j \Leftrightarrow \text{ Pessoa i pular na parada j}$
+$$\Omega = \{(x_1,\dots,x_{6}): x_i \in \{1,...,10\},\;i = 1,...,10\}$$
+
+$$|\Omega| = 10.10.10...10=10^6$$
+
+$$A = \{(x_1,\dots,x_{6}): x_i \in \{1,...,10\},\;i = (1,...,10),\; x_i \neq x_j,\; \forall\;i\neq j\}$$
+
+$$|A| = \frac{10!}{6!}=A_{10,6}$$
+
+$$P(A) = \frac{|A|}{|\Omega|}=\frac{A_{10,6}}{10^6}$$
+
+# Questão 4
+
+(Sem reposisao,  importa a ordem)
+
+$x_i=j \Leftrightarrow \text{ bola i na caixa j}$
+
+$$\Omega = \{(x_1,\dots,x_{n})\;|\; x_i \in \{1,..,r\},\;i = {1,...,n}\}$$
+
+$$|\Omega| = r.r...r=r^n$$
+
+
++ $A_j=\{\text{A caixa j com 2, sendo a n-ésima bola a segunda desta}\}, j = 1,...,r$
+
+A caixa $j$ com a bola $n$ (fixo) e uma bola dentre as n-1 restantes nas r caixas:
+
++ $\frac{}{1}...\frac{}{j-1}.\frac2{j}.\frac{}{j+1}...\frac{}{r}$
+
+$$|A_j|=\overbrace{
+\underbrace{
+(n-1)}_{\substack{\text{n-1 bolas (Possibilidades)}\\ \text{para colocar na caixa j}}}.
+\underbrace{
+(r-1).(r-2)...(r-(n-2))
+}_{\text{n-2 bolas para as r-1 caixas}}
+}^{\text{r caixas}}$$
+
++ $A=A_1\cap...\cap A_r \;; Dijuntos$
+
++ $|A|=\sum_{j=1}^r|A_j|\;; Dijuntos$
+
+$$\begin{aligned}
+|A|&= \sum_{j=1}^r\left[(n-1)(r-1)...(r-(n-2))\right]\\
+&=r.(n-1)(r-1)...(r-(n-2)\\
+&=(n-1).\frac{r!}{(r-(n-1)!}\\
+&=(n-1)A_{r,n-1}
+\end{aligned}$$
+
+$$P(A)=\frac{(n-1)A_{r,n-1}}{r^n}$$
+  
+# Questão 5
+
+(Com reposisao, e não importa a ordem)
+
++ $x_i=j \Leftrightarrow \text{ bola i na caixa j}$
+
+$$\Omega = \{(x_1,\dots,x_{n}): x_i \in \{1,...,n\},\;i = 1,...,n,\}$$
+
+$$|\Omega| = n.n.n...n=n^n$$
+
+## a)
+
+$$A_i=\{\text{caixa i sem a bola e as (n-1) caixas com as n bolas de tal forma que nenhuma caixa fique vazia}\}$$
+
+$$B_j=\{\text{Caixa i vazia. Caixa j com 2 bolas e as n-2 caixas com 1 bola}\}$$
+
++ $A_i = \cup_{j=2}^{n}B_j$
+
+$$|B_j|=
+\underbrace{{ n\choose 2}.1}_{\substack{\text{Escolher 2 }\\ 
+\text{bolas dentre n}\\
+\text{para a caixa j}}}.
+\underbrace{(n-2)!}_{\substack{\text{Colocar as outras n-2}\\
+\text{bolas nas n-2 caixas}}}$$
+
++ $P(B_j)=\frac{{n\choose2}(n-2)!}{n^n}$
+
+$$P(A_i) = \sum_{j=2}^{n}P(B_j)=\frac{(n-1){n\choose2}(n-2)!}{n^n}$$
+
+Todas as possibilidades de uma caixa vazia:
+
+$$\sum_{i=1}^nP(A_i)=\frac{n(n-1){n\choose2}(n-2)!}{n^n}=\frac{{n\choose2}(n)!}{n^n}$$
+
+
+
+## b)
+
+1.
+
++ $C = \{\text{Caixa 1 vazia (fixo) e as outras n-1 caixas com as n bolas distribuidas aleatoriamente}\}$
+
+$$|C| = \underbrace{(n-1)...(n-1)}_{\text{n bolas para as  n-1 caixas}} = (n-1)^n$$
+$$P(C) = \frac{(n-1)^n}{n^n}$$
+2.
+
+
++ $A = \{\text{Apenas 1 caixa vazia}\};i = 2,...n$
++ $A_i=\{\text{caixa i sem a bola e as (n-1) caixas com as n bolas de tal forma que nenhuma caixa fique vazia}\}$
+
++ $|A| = \sum_{i=1}^nP(A_i)=\frac{n(n-1){n\choose2}(n-2)!}{n^n}=\frac{{n\choose2}(n)!}{n^n}$
+
+$$P(A|C) = \frac{P(A \cap C)}{P(C)}=\frac{P(A_1)}{P(C)}=\frac{\frac{{n\choose2}(n-1)!}{n^n}}{\frac{(n-1)^n}{n^n}}=\frac{{n\choose2}(n-1)!}{(n-1)^n}$$
+
+
+
+## c)
+
++ $C = \{\text{Caixa 1 vazia (fixo) e as outras n-1 caixas com as n bolas distribuidas aleatoriamente}\}$
++ $A = \{\text{Apenas 1 caixa vazia}\};i = 2,...n$
+
+$$P(C|A) = \frac{P(C \cap A)}{P(A)}= \frac{P(A_1)}{P(A)}=\frac{\frac{{n \choose 2} (n-1)!}{n^n}}{\frac{{n \choose 2} (n)!}{n^n}} = \frac{(n-1)!}{n.(n-1)!} = \frac{1}{n}$$
+
+
+# Questão 6
+
+(Com reposisao, e não importa a ordem)
+
++ $x_i=j \Leftrightarrow \text{ bola i na caixa j}$
+
+$$\Omega = \{[x_1,\dots,x_{n}]: x_i \in \{1,...,r\},\;i = 1,...,n,\}$$
+
+$|\Omega| = \underbrace{r.r.r...r}_{\text{n bolas com r possib. de caixas}} =r^n$
+
+$A = \{\text{Caixa 1 tenha j bolas e r-1 caixas com j-n bolas distribuidas  aleatoriamente} \}$
+
+$$|A| = \underbrace{
+{n \choose j}.1}_{\substack{\text{j bolas de n} \\ \text{para a caixa 1 sem }\\
+\text{importar a ordem}}}.
+\overbrace{
+(r-1)^{(n-j)}}^{\substack{\text{n-j bolas com a}\\ \text{posib. de r-1 caixas}}}$$
+
++ $\displaystyle P(A) = \frac{{n \choose j}.(r-1)^{(n-j)}}{r^n}$
+
+# Questão 7
+
+**\*Duvida**
+
+(Sem reposisao, e não importa a ordem)
+
+
+$$\begin{cases}
+\text{x = b bolas pretas}\\
+\text{y = r bolas vermelhas}
+\end{cases}$$
+
++ $S = \{x_1,...,x_b,y_1,...,y_r\}$
+
+$\omega = \text{Bola retirada da caixa}$
+
+$$\Omega = \{[\omega_1,\dots,\omega_{n-1}]: \omega_i \in S,\;i = 1,...,n-1,\; \omega_i \neq \omega_j,\; p/i \neq j\}$$
+
+$|\Omega| = {b+r \choose n-1}$
+
+$A_i = \{ \text{Tirar bola preta na i-ésima extração}\}$
+
+$|A_i| = {b \choose 1}\frac{1}{b}$
+
+$A^c_1 \cap A^c_2 \cap ... \cap A^c_{n-1} \cap A_n$
+
+$$\begin{aligned}
+P(A^c_1 \cap A^c_2 \cap ... \cap A^c_{n-1} \cap A_n) &= P(A^c_1).P(A^c_2|A^c_1)...P(A^c_{n-1}|A^c_1\cap...\cap A^c_{n-2}).P(A_{n})\\
+&=\frac{{r \choose n-1}\frac{1}{r}.\frac{1}{r-1}.\frac{1}{r-2}...\frac{1}{r-(n-1)}.{b \choose 1}\frac{1}{b}}{{r+b \choose n-1}} \\
+\end{aligned}$$
+
+
+# Questão 8
+
+## a)
+
+$$\frac{\overbrace{{4 \choose 1}.1.1.1.1.1}^{\substack{\text{1 naipe de 4 para}\\ 
+\text{exatamente esta sequencia} \\ \text{de 1 possibilidade de cartas}}}}{{52 \choose 5}}$$
+
+## b)
+
+$$\frac{\overbrace{{4 \choose 1}}^{\text{1 de 4 naipes}}.\overbrace{10.1.1.1.1}^{\substack{\text{10 possib. p primeira carta}\\ 
+\text{e sequencialas apenas 1 para o resto}}}}{{52 \choose 5}}$$
+
+
+## c)
+
+A ordem importa
+
++ $(x,x,x,x,y) \neq (y,y,y,y,x);\text{ 2 formas diferentes }$
+
+$$\frac{\overbrace{{4 \choose 4}.{4 \choose 1}.{13 \choose 2}}^{\substack{\text{De 13 cartas, 2 para serem} \\ \text{os números}\\ \text{e 4 de 4 naipes diferentes}\\ \text{e 1 de 4 de naipes diferentes}}}.\overbrace{2}^{\substack{\text{Número de ordens} \\ \text{que importa}}}}{{52 \choose 5}}$$
+
+
+$$\overbrace{\frac{{4 \choose 4}.{13 \choose 1}.{48 \choose 1}}
+{{52 \choose 5}}}^{\substack{\text{De 4 naipes tirar os 4}\\\text{de 13 cartas tirar 1 número} \\ \text{1 de 48 para a 5º carta}}}$$
+
+## d)
+
+A ordem importa
+
++ $(x,x,x,y,y) \neq (y,y,y,x,x);\text{ 2 formas diferentes }$
+
+$$\frac{\overbrace{{4 \choose 3}.{4 \choose 2}.{13 \choose 2}}^{\substack{\text{De 13 cartas, 2 para serem} \\ \text{de mesmo número}\\ \text{e 3 de 4 naipes diferentes}\\ \text{e 2 de 4 de naipes diferentes}}}.\overbrace{2}^{\substack{\text{Número de ordens} \\ \text{que importa}}}}{{52 \choose 5}}$$
+
+
+## e)
+
+Não importa a ordem
+
+$$\frac{\overbrace{{4 \choose 1}.{13 \choose 5}}^{\substack{\text{De 4 naipes 1}\\ \text{ p 5 cartas de }\\\text{uma das 13} \\ \text{ do naipe}}}}
+{{52 \choose 5}}$$
+
+## f)
+
+$$\frac{{\overbrace{{4 \choose 1}.10}^{\substack{\text{10 números para a} \\ \text{1ºCarta vezes os} \\ \text{naipes possiveis}}}.\overbrace{{4 \choose 1}.1.{4 \choose 1}.1.{4 \choose 1}.1.{4 \choose 1}.1}^{\substack{\text{4 cartas possiveis para} \\ \text{cada sequencia com base no naipe}}}} - \overbrace{{4 \choose 1}.10.1.1.1}^{\text{4 naipes com sequencia do mesmo}}}
+{{52 \choose 5}}$$
+
+
+## g) 
+
+Ordem importa
+
++ $(x,x,x,y,z) \neq (y,y,y,z,x) \neq (z,z,z,x,y);\text{ 3 formas diferentes }$
+
+$$\frac{\overbrace{{4 \choose 3}.{4 \choose 1}.{4 \choose 1}.{13 \choose 3}}^{\substack{\text{De 13 cartas, 3 para serem} \\ \text{os números}\\ \text{3 de 4 naipes diferentes}\\ \text{e 1 de 4 de naipes diferentes}}}.\overbrace{3}^{\substack{\text{Número de ordens} \\ \text{que importa}}}}{{52 \choose 5}}$$
+
+
+## h) 
+
+Ordem importa
+
++ $(x,x,y,y,z) \neq (y,y,z,z,x) \neq (z,z,x,x,y);\text{ 3 formas diferentes }$
+
+$$\frac{\overbrace{{4 \choose 2}.{4 \choose 2}.{4 \choose 1}.{13 \choose 3}}^{\substack{\text{De 13 cartas, 3 para serem} \\ \text{os número}\\ \text{2 de 4 naipes diferentes}\\ \text{e 1 de 4 de naipes diferentes}}}.\overbrace{3}^{\substack{\text{Número de ordens} \\ \text{que importa}}}}{{52 \choose 5}}$$
+
+## i)
+
+Ordem importa
+
++ $(w,w,x,y,z) \neq (x,x,y,z,w) \neq (y,y,z,w,x) \neq (z,z,w,x,y);\text{ 4 formas diferentes }$
+
+
+$$\frac{\overbrace{{4 \choose 2}.{4 \choose 1}.{4 \choose 1}.{4 \choose 1}.{13 \choose 4}}^{\substack{\text{De 13 cartas, 4 para serem} \\ \text{os número}\\ \text{2 de 4 naipes diferentes}\\ \text{e 1 de 4 de naipes diferentes}}}.\overbrace{4}^{\substack{\text{Número de ordens} \\ \text{que importa}}}}{{52 \choose 5}}$$
+
+```{r}
+choose(13,4)*choose(4,2)*choose(4,1)*choose(4,1)*choose(4,1)*4
+choose(12,3)*choose(4,2)*4^3*13
+```
+
+
+# Questão 9
+
+(Sem reposisao,  E não importa a ordem)
+$x_i=j \Leftrightarrow \text{ Pessoa i pular na parada j}$
+
+$$\Omega = \{(x_1,x_2,x_{3}): x_i \in \{1,...,10\},\;i = 1,...,10,\;x_i \neq x_j \}$$
+$$|\Omega|={ 10\choose 3}$$
+
+
+$$\overbrace{\frac{{8 \choose 1}.1.1}{{ 10\choose 3}}}^{\substack{\text{Escolher e 6 o 3 (fixo)}\\ \text{Escolher o 3º número}\\ \text{entre 10 - 2 restantes}}}$$
+
+# Questão 10
+
+$$\overbrace{\frac{{r-k \choose n-k}\overbrace{1.1....1}^{k}}{{ r \choose n}}}^{\substack{\text{Pegar k objetos (fixo)} \\ \text{e entre os r-k restantes}\\ \text{pegar n-k que falta pra completar a amostragem n}}}$$
+
+# Questão 11
+
+Classes dos baralhos $\begin{cases} vermelhas = \text{26 cartas} \\ pretas = \text{26 cartas}\end{cases}$
+
+Escolher 2 de cada classe sem importar a ordem:
+
+$$\frac{{26 \choose 2}.{26 \choose 2}}{{ 52 \choose 4}}$$
+
+# Questão 12
+
++ $A=\{\text{Pelo menos 1}\}$
+ 
++ $P(A) = 1- P(A^c)$
+
+$$1- \overbrace{\frac{{5 \choose 0}.{n-5 \choose 3}}{{ n \choose 3}}}^{\substack{\text{Das 5 premiadas 0 teve} \\ \text{o bilhete adquirido} \\ \text{e das n-5 não premiadas} \\ \text{3 constaram} }}$$
+
+
+
+
+
+
+
+
+
+
+
