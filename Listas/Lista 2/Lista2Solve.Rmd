@@ -294,12 +294,6 @@ Ordem importa
 
 $$\frac{\overbrace{{4 \choose 2}.{4 \choose 1}.{4 \choose 1}.{4 \choose 1}.{13 \choose 4}}^{\substack{\text{De 13 cartas, 4 para serem} \\ \text{os número}\\ \text{2 de 4 naipes diferentes}\\ \text{e 1 de 4 de naipes diferentes}}}.\overbrace{4}^{\substack{\text{Número de ordens} \\ \text{que importa}}}}{{52 \choose 5}}$$
 
-```{r}
-choose(13,4)*choose(4,2)*choose(4,1)*choose(4,1)*choose(4,1)*4
-choose(12,3)*choose(4,2)*4^3*13
-```
-
-
 # Questão 9
 
 (Sem reposisao,  E não importa a ordem)
