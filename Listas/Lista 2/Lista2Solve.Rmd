@@ -188,7 +188,7 @@ $$|A| = \underbrace{
 
 # Questão 7
 
-**\*Duvida**
+**\* A complementar...**
 
 (Sem reposisao, e não importa a ordem)
 
@@ -202,15 +202,37 @@ $$\begin{cases}
 
 $\omega = \text{Bola retirada da caixa}$
 
-$$\Omega = \{[\omega_1,\dots,\omega_{n-1}]: \omega_i \in S,\;i = 1,...,n-1,\; \omega_i \neq \omega_j,\; p/i \neq j\}$$
+$$\Omega = \{[\omega_1,\dots,\omega_{n}]: \omega_i \in S,\;i = 1,...,n,\; \omega_i \neq \omega_j,\; p/i \neq j\}$$
 
-$|\Omega| = {b+r \choose n-1}$
+$|\Omega| = {b+r \choose n}$
 
-$A_i = \{ \text{Tirar bola preta na i-ésima extração}\}$
++ $A_i = \{ \text{Tirar bola preta n-1 vezes}\}$
 
-$|A_i| = {b \choose 1}\frac{1}{b}$
+Não Importa a ordem
 
-$A^c_1 \cap A^c_2 \cap ... \cap A^c_{n-1} \cap A_n$
++ $A = \{[y_1,...,y_{n-1}]:| y_i \in \{1,...,r \},\forall \{1,...,n-1\} \}$
+
+$$P(A) = \overbrace{\frac{{r \choose n-1}}{\underbrace{{b+r \choose n-1}}_{\substack{\text{De b+r bolas}\\ \text{n-1 são tiradas}}}}}^{\substack{\text{De r bolas n-1 são tiradas}}}$$
+
++ $B_n|A = \{ \text{A n-ésima bola é preta e as n-1 bolas não são}\}$
+
+$$P(B_n|A)=\frac{\overbrace{b}^{\text{Quantas bolas podem ser a n-ésima preta}}}{\underbrace{b+r-(n-1)}_{\substack{\text{De b+r bolas n-1 foram tiradas}}}}$$
+
+
+$$P(A \cap B_n)=P(A).P(B_n|A) = \frac{{r \choose n-1}}{{b+r \choose n-1}}.\frac{b}{b+r-(n-1)} $$
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $$\begin{aligned}
 P(A^c_1 \cap A^c_2 \cap ... \cap A^c_{n-1} \cap A_n) &= P(A^c_1).P(A^c_2|A^c_1)...P(A^c_{n-1}|A^c_1\cap...\cap A^c_{n-2}).P(A_{n})\\
