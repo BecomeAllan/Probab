@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Questão 1
 
 (Com reposisao,  E importa a ordem)
-$$\Omega = \{(x_1,\dots,x_n): x_i \in \{.\;,-\}, i =1,...,n\}$$
+$$\Omega = \{(x_1,\dots,x_n): x_i \in \{.\;,-\}, i =[1,...,n]\}$$
 
 ## a)
 
@@ -41,7 +41,7 @@ sn &= 2(2^n-1)
 
 
 (Sem reposisao,  e importa a ordem)
-$$\Omega = \{(x_1,\dots,x_r): x_i \in \{1,...,n\},\;i=1,...,r ,\; x_i \neq x_j,\; \forall\;i\neq j\}$$
+$$\Omega = \{(x_1,\dots,x_r): x_i \in \{1,...,n\},\;i=[1,...,r] ,\; x_i \neq x_j,\; \forall\;i\neq j\}$$
 
 
 $$A_i=\{\text{Obter sucesso na i-ésima tentativa}\}$$
@@ -55,11 +55,11 @@ $$P(A_1^c \cap A_2^c\cap...\cap A_{r-1}^c \cap A_r)=\underbrace{\frac{n-1}{n}}_{
 
 (Sem reposisao,  E importa a ordem)
 $x_i=j \Leftrightarrow \text{ Pessoa i pular na parada j}$
-$$\Omega = \{(x_1,\dots,x_{6}): x_i \in \{1,...,10\},\;i = 1,...,6\}$$
+$$\Omega = \{(x_1,\dots,x_{6}): x_i \in \{1,...,10\},\;i = [1,...,6]\}$$
 
 $$|\Omega| = 10.10.10...10=10^6$$
 
-$$A = \{(x_1,\dots,x_{6}): x_i \in \{1,...,10\},\;i = (1,...,6),\; x_i \neq x_j,\; \forall\;i\neq j\}$$
+$$A = \{(x_1,\dots,x_{6}): x_i \in \{1,...,10\},\;i = [1,...,6],\; x_i \neq x_j,\; \forall\;i\neq j\}$$
 
 $$|A| = \frac{10!}{(\underbrace{10-6}_{\substack{\text{10 paradas } \\ \text{com base em} \\ \text{6 pessoas sem} \\ \text{repetir}}})!}=\frac{10!}{4!}=10.9.8.7.6.5=A_{10,6}$$
 
@@ -71,12 +71,12 @@ $$P(A) = \frac{|A|}{|\Omega|}=\frac{A_{10,6}}{10^6}$$
 
 $x_i=j \Leftrightarrow \text{ bola i na caixa j}$
 
-$$\Omega = \{(x_1,\dots,x_{n})\;|\; x_i \in \{1,..,r\},\;i = {1,...,n}\}$$
+$$\Omega = \{(x_1,\dots,x_{n})\;|\; x_i \in \{1,..,r\},\;i = [1,...,n]\}$$
 
 $$|\Omega| = r.r...r=r^n$$
 
 
-+ $A_j=\{\text{A caixa j com 2, sendo a n-ésima bola a segunda desta}\}, j = 1,...,r$
++ $A_j=\{\text{A caixa j com 2, sendo a n-ésima bola a segunda desta}\}, j = [1,...,r]$
 
 A caixa $j$ com a bola $n$ (fixo) e uma bola dentre as n-1 restantes nas r caixas:
 
@@ -109,7 +109,7 @@ $$P(A)=\frac{(n-1)A_{r,n-1}}{r^n}$$
 
 + $x_i=j \Leftrightarrow \text{ bola i na caixa j}$
 
-$$\Omega = \{(x_1,\dots,x_{n}): x_i \in \{1,...,n\},\;i = 1,...,n,\}$$
+$$\Omega = \{(x_1,\dots,x_{n}): x_i \in \{1,...,n\},\;i = [1,...,n],\}$$
 
 $$|\Omega| = n.n.n...n=n^n$$
 
@@ -172,7 +172,7 @@ $$P(C|A) = \frac{P(C \cap A)}{P(A)}= \frac{P(A_1)}{P(A)}=\frac{\frac{{n \choose 
 
 + $x_i=j \Leftrightarrow \text{ bola i na caixa j}$
 
-$$\Omega = \{[x_1,\dots,x_{n}]: x_i \in \{1,...,r\},\;i = 1,...,n,\}$$
+$$\Omega = \{[x_1,\dots,x_{n}]: x_i \in \{1,...,r\},\;i = [1,...,n],\}$$
 
 $|\Omega| = \underbrace{r.r.r...r}_{\text{n bolas com r possib. de caixas}} =r^n$
 
@@ -202,7 +202,7 @@ $$\begin{cases}
 
 $\omega = \text{Bola retirada da caixa}$
 
-$$\Omega = \{[\omega_1,\dots,\omega_{n}]: \omega_i \in S,\;i = 1,...,n,\; \omega_i \neq \omega_j,\; p/i \neq j\}$$
+$$\Omega = \{[\omega_1,\dots,\omega_{n}]: \omega_i \in S,\;i = [1,...,n],\; \omega_i \neq \omega_j,\; p/i \neq j\}$$
 
 $|\Omega| = {b+r \choose n}$
 
@@ -299,7 +299,7 @@ $$\frac{\overbrace{{4 \choose 2}.{4 \choose 1}.{4 \choose 1}.{4 \choose 1}.{13 \
 (Sem reposisao,  E não importa a ordem)
 $x_i=j \Leftrightarrow \text{ Pessoa i pular na parada j}$
 
-$$\Omega = \{(x_1,x_2,x_{3}): x_i \in \{1,...,10\},\;i = 1,...,10,\;x_i \neq x_j \}$$
+$$\Omega = \{(x_1,x_2,x_{3}): x_i \in \{1,...,10\},\;i = [1,...,10],\;x_i \neq x_j \}$$
 $$|\Omega|={ 10\choose 3}$$
 
 
