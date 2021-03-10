@@ -1,0 +1,501 @@
+---
+title: 'Lista 3'
+author: 'Allan'
+date: '10/03/2021'
+output: 
+  pdf_document: 
+    extra_dependencies: ['mathtools']
+    latex_engine: pdflatex
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Questão 1
+
+Considerando $\Omega \subset [0,1)$ e $\{X=x\}=\{\omega\in\Omega:X(\omega)=x\}\in\mathcal{A}$
+
+No qual $\omega$ é o primeiro digito da expansão decimal de um número escolhido neste intervalo, sabendo que exíste apenas os dígitos $\{0,1,2,...,9\}=\Omega=\{\omega_1,\omega_2,\omega_3,...,\omega_{10}\}$
+
+$X:\Omega \rightarrow \mathbb{R}$, tal que, $X(\omega_i)=x_i$, para, $i=\{1,2,...,10\}$
+
+Sabendo que:
+
+$P(\{\omega\})=\frac{1}{|\Omega|}=\frac{1}{10}$
+
+Obtemos que $X$ é uma distribuição uniforme discreta
+
+$$p_x(x)=P(X=x)=\begin{cases}
+  \frac{1}{10}&,\text{se }x\in\Omega\\
+  0&,\text{se } x \notin \Omega
+\end{cases}$$
+
+# Questão 2
+
+## a)
+
+Sabendo que
+$$X\sim B(n,p)\:,\; n=\{0,1,...\}\;$$
+
+$$p_x(x)=P(X=x)\begin{cases}
+  {n \choose x}p^x(1-p)^{n-x}&,x\in\{0,1,2,...\:,n\}\\
+  0&, \text{ c.c.}
+\end{cases}$$
+
+Assim
+$$Y = n-X$$
+
+$$\begin{aligned}
+P(Y=y)=P(n-X=y)&=P(X=n-y)\\
+&=\begin{cases}
+  {n \choose n-y}p^{n-y}(1-p)^{n-(n-y)}&, y \in \{n,n-1,n-2,...\:,0\}\\
+  0&, \text{ c.c}
+\end{cases}  
+\end{aligned}$$
+
+## b)
+
+Sabendo que
+$$X\sim Geom(p)\:,\; x=\{1,2,...\}\;$$
+
+$$p_x(x)=P(X=x)\begin{cases}
+  p(1-p)^{x-1}&,x\in\{1,2,...\}\\
+  0&, \text{ c.c.}
+\end{cases}$$
+
+Assim
+$$Y = X-1$$
+
+$$\begin{aligned}
+P(Y=y)=P(X-1=y)&=P(X=y+1)\\
+&=\begin{cases}
+  p(1-p)^{(y+1)-1}&, y \in \{2,3,4,...\}\\
+  0&, \text{ c.c}
+\end{cases}  
+\end{aligned}$$
+
+## c)
+
+Sabendo que
+$$X\sim Pascal(r,p)\:,\; r=\{1,2,...\}\;$$
+
+$$p_x(x)=P(X=x)\begin{cases}
+  {x-1 \choose r-1}p^{r}(1-p)^{x-r}&,x\in\{r,r+1,...\}\\
+  0&, \text{ c.c.}
+\end{cases}$$
+
+Assim
+$$Y = X-r$$
+
+$$\begin{aligned}
+P(Y=y)=P(X-r=y)&=P(X=y+r)\\
+&=\begin{cases}
+  {(y+r)-1 \choose r-1}p^{r}(1-p)^{(y+r)-r}&,x\in\{2r,2r+1,...\}\\
+  0&, \text{ c.c}
+\end{cases}  
+\end{aligned}$$
+
+# Questão 3
+
+$\{X=x=n^o \text{ de bolas vermelhas}\}$
+
+$$\begin{cases}
+  p&=\frac{n^o \text{ de Vermelhas}}{n^o \text{ de Vermelhas + pretas}}=\frac{6}{10}\\
+  (1-p)&=\frac{n^o \text{ de Pretas}}{n^o \text{ de Vermelhas + pretas}}=\frac{4}{10}\\
+\end{cases}$$
+
+Seja $n$ é o tamanho da amostra
+
+## a) (sem repo.)
+
+$$X \sim Hgeo(10,6,n),\:n\le 6$$
+
+$$P(X=x)=\begin{cases}
+  \frac{{6 \choose x}{4 \choose n-x}}{{10 \choose n}} &, x\in\{0,1,...\:,n\}\\
+  0&, \text{c.c}
+\end{cases}$$
+
+## b) (com repo.)
+
+$$X \sim B(n,0.6)$$
+
+$$P(X=x)=\begin{cases}
+  {n \choose x}p^{x}(1-p)^{n-x}&,x\in\{0,1,...\;,n\}\\
+  0&, \text{ c.c.}
+\end{cases}$$
+
+# Questão 4
+
+$$p_x(x)=\begin{cases}
+  c2^x&, x\in\{1,2,3,...,\:N\}\\
+  0&, \text{ c.c}
+\end{cases}$$
+
+Para ser uma função de probabilidade:
+
+$$\sum_{i=1}^{\infty}p_x(x_i)=1$$
+
+Assim:
+
+$$\begin{aligned}
+  \sum_{i=1}^{N}c2^{x_i}&=1\\
+  \Rightarrow c&=\sum_{i=1}^{N} \frac{1}{2^{x_i}}\\
+  &=\sum_{i=1}^{N} \left(\frac{1}{2}\right) ^{x_i}\\
+ \therefore c &=\frac{1-(\frac{1}{2})^N}{1+\frac{1}{2}}
+\end{aligned}$$
+
+# Questão 5
+
+$$X\sim Geom(0.8)$$
+
+$$\begin{matrix}
+  p_x(x)=\begin{cases}
+  p(1-p)^{x-1}&,x\in\{1,2,...\}\\
+  0&, \text{ c.c.}
+\end{cases}
+& F_x(x)=\begin{cases}
+  1-(1-p)^{x}&,x\in\{1,2,...\}\\
+  0&, \text{ c.c.}
+\end{cases}
+\end{matrix}$$
+
+## a)
+
+$$P(X>3)=1-P(X\le3)=1-F_x(3)=(1-0.8)^3=(0.2)^3$$
+
+## b)
+
+$$\begin{aligned}
+  P(\{4\le X\le7\}\cup \{X>9\})&=F_x(7)-F_x(3)+1-F_x(9)\\
+  &=1-(0.2)^7-(1-(0.2)^3)+1-(0.2)^9\\
+  &=1+(0.2)^3-(0.2)^7-(0.2)^9
+\end{aligned}$$
+
+## c)
+
+$$\begin{aligned}
+  P(\{3\le X\le5\}\cup \{7\le X\le10\})&=F_x(5)-F_x(2)+F_x(10)-F_x(6)\\
+  &=1-(0.2)^5-(1-(0.2)^2)+1-(0.2)^{10}-(1-(0.2)^6)\\
+  &=(0.2)^2-(0.2)^5+(0.2)^6-(0.2)^{10}
+\end{aligned}$$
+
+# Questão 6
+
+$$X:\Omega \rightarrow \mathbb{R}\;/\;X(\omega)=x,\omega\in\{0,1,...\:,99\}$$
+$$P(\{\omega\})=\frac{1}{|\Omega|}=\frac{1}{100}$$
+
+## a)
+
+$$P(X\ge 25)=1-P(X\le24)=1-\sum_{i=0}^{24}\frac{1}{100}=1-\frac{25}{100}=\frac{75}{100}$$
+
+## b)
+
+$$\begin{aligned}
+P(2.6< X< 12.2)&=P(X\le12)-P(X\le2)\\
+&=\sum_{i=0}^{12}\frac{1}{100}-\sum_{i=0}^{2}\frac{1}{100}\\
+&=\frac{13}{100}-\frac{3}{100}\\
+&=\frac{10}{100}
+\end{aligned}$$
+
+## c)
+
+$$\begin{aligned}
+P(\{8< X\le 10\}\cup\{30<X\le32\})&=P(X\le10)-P(X\le7)+P(X\le32)-P(X\le29)\\
+&=\sum_{i=0}^{10}\frac{1}{100}-\sum_{i=0}^{7}\frac{1}{100}+\sum_{i=0}^{32}\frac{1}{100}-\sum_{i=0}^{29}\frac{1}{100}\\
+&=\frac{11}{100}-\frac{8}{100}+\frac{33}{100}-\frac{30}{100}\\
+&=\frac{6}{100}
+\end{aligned}$$
+
+## d)
+
+$$\begin{aligned}
+P(25\le X\le 30)&=P(X\le30)-P(X\le24)\\
+&=\sum_{i=0}^{30}\frac{1}{100}-\sum_{i=0}^{24}\frac{1}{100}\\
+&=\frac{31}{100}-\frac{25}{100}\\
+&=\frac{6}{100}
+\end{aligned}$$
+
+# Questão 7
+
+$$X\sim Poisson(2)$$
+
+$$\begin{matrix}
+  p_x(x)=\begin{cases}
+  \frac{e^{-2}2^x}{x!}&,x\in\{0,2,...\}\\
+  0&, \text{ c.c.}
+\end{cases}
+& F_x(x)=\begin{cases}
+  0&,x<0\\
+  e^{-2}\sum_{k=0}^{x}\frac{2^x}{k!}&, x\ge 0
+\end{cases}
+\end{matrix}$$
+
+## a)
+
+$$P(X\ge1)=1-P(X<1)=1-P(X=0)=1-\frac{e^{-2}2^0}{0!}=1-e^{-2}$$
+
+## b)
+
+$$\begin{aligned}
+P(\{X>2\}\;|\;\{x<5\})&=\frac{P(\{X>2\}\cap\{X<5\})}{P(X<5)}\\
+&=\frac{P(\{2<X<5\})}{P(X<5)}\\
+&=\frac{F_x(4)-F_x(2)}{F_x(4)}\\
+&=1-\frac{F_x(2)}{F_x(4)}\\
+&=1-\frac{1-\sum_{k=0}^{2}\frac{e^{-2}2^x}{x!}}{1-\sum_{k=0}^{4}\frac{e^{-2}2^x}{x!}}\\  
+\end{aligned}$$
+
+# Questão 8
+
+$$\Omega=\{(\omega_1,\omega_2): \omega\in\{1,2,...\:,12\}\}\text{, e } |\Omega|=12.12$$
+
+$$X:\Omega \rightarrow \mathbb{R}/ X(\max[\omega_1,\omega_2])=x$$
+
+Para o 12 (i=12) ser maior, onde ele é o maior, temos:
+(A ordem não importa)
+
++ Se tirar 12 na $1^a$ jogada $A$, (temos 12 possib. pra comparar)
+  + $|A|=12$
++ Se tirar 12 na $2^a$ jogada $B$ (temos 12 possib. pra comparar)
+  + $|B|=12$
++ Tirar 12 nas 2 jogadas $A\cap B$ (não são disjuntos)
+  + $|A\cap B|=1$
+
+Assim
+$P(A\cup B)=P(A)+P(B)-P(A\cap B)=\frac{12+12-1}{12^2}=\frac{24-1}{12^2}$
+
+Fazendo para $k=i-1$ (11) ser o maior:
+
++ Se tirar k na $1^a$ jogada $A$
+  + $|A|=i-1$
++ Se tirar k na $2^a$ jogada $B$
+  + $|B|=i-1$
++ Tirar k nas 2 jogadas $A\cap B$ (não são disjuntos)
+  + $|A\cap B|=1$
+
+Assim:
+
+$P(A\cup B)=P(A)+P(B)-P(A\cap B)=\frac{(i-1+i-1)-1}{12^2}=\frac{(2i-2)-1}{12^2}=\frac{2(i-1)-1}{12^2}=\frac{2k-1}{12^2}$
+
+Então:
+
+$$p_x(x)=\begin{cases}
+  \frac{2x-1}{12^2}&,\;x\in\{1,2,...\:,12\}\\
+  0&, \text{ c.c}
+\end{cases}$$
+
+# Questão 9
+
+## a)
+
+$$\Omega=\{(\omega_1,\omega_2): \omega\in\{1,2,...\:,12\},\;\omega_i\neq\omega_j,\;i \neq j \}\text{, e } |\Omega|=12.11$$
+
+$$X:\Omega \rightarrow \mathbb{R}/ X(\max[\omega_1,\omega_2])=x$$
+
+Para o 12 (i=12) ser maior, onde ele é o maior, temos:
+(A ordem não importa)
+
++ Se tirar 12 na $1^a$ jogada, $A$ (temos 11 possib. de comparação)
+  + $|A|=11$
++ Se tirar 12 na $2^a$ jogada $B$ (temos 11 possib. de comparação)
+  + $|B|=11$
++ Tirar 12 nas 2 jogadas $A\cap B$ (são disjuntos)
+  + $|A\cap B|=\emptyset$
+
+Assim
+$P(A\cup B)=P(A)+P(B)=\frac{11+11}{12.11}=\frac{22}{12.11}$
+
+Fazendo para $k=i-1$ (11) ser o maior:
+
++ Se tirar k na $1^a$ jogada $A$ (temos 10 possib. de comparação)
+  + $|A|=i-2$
++ Se tirar k na $2^a$ jogada $B$ (temos 10 possib. de comparação)
+  + $|B|=i-2$
++ Tirar k nas 2 jogadas $A\cap B$ (são disjuntos)
+  + $|A\cap B|=\emptyset$
+
+Assim:
+
+$P(A\cup B)=P(A)+P(B)=\frac{(i-2+i-2)}{12.1}=\frac{(2i-4)}{12.11}=\frac{2(i-2)}{12.11}=\frac{2(i-1-1)}{12.11}=\frac{2(k-1)}{12.11}=\frac{(k-1)2!(12-2)!}{12!}=\frac{(k-1)}{{ 12 \choose 2}}$
+
+Então:
+
+$$p_x(x)=\begin{cases}
+  \frac{(x-1)}{{12 \choose 2
+  }}&,\;x\in\{2,3,...\:,12\}\\
+  0&, \text{ c.c}
+\end{cases}$$
+
+*Lembrando que $p_x>0$ quando $x\in\Omega$
+
+## b)
+
+$$F_x(x)=P(X\le x)= \sum_{x\in \Omega}p_x(x)$$
+
+Fazendo
+
+$$\sum_{x:k \in \Omega}p_x(k)=\sum_{x=2}^{k}\frac{(x-1)}{{12 \choose 2
+  }}\overbrace{=}^{x-1=n|_{1}^{k-1}}\sum_{n=1}^{k-1}\frac{n}{{12 \choose 2
+  }}\overbrace{=}^{j=k-1}\frac{\frac{j(j-1)}{2}}{{12 \choose 2}}=\frac{{j \choose2}}{{12\choose 2}}$$
+
+Assim:
+
+$$p_x(x)=\begin{cases}
+  0&,x<2\\
+  \frac{{[x]\choose 2}}{{12 \choose 2
+  }}&,\;2\le x<12\\
+  1&, x\ge12
+\end{cases}$$
+
+# Questão 10
+
+(não importa a ordem)
+$$\Omega=\{(\omega_1,...,\omega_n):\omega\in\{1,...\:,r\},\omega_i\neq\omega_j,\;\forall i\neq j\}$$
+
+$$Y:\Omega \rightarrow \mathbb{R}/ Y(\max[\omega_1,...\;,\omega_n])=y$$
+$$Z:\Omega \rightarrow \mathbb{R}/ Z(\min[\omega_1,...\;,\omega_n])=z$$
+
+## a)
+
+Como na questão 9 (o mesmo processo),
+
+$$P(Y=y)=\underbrace{\frac{\overbrace{y-1}^{\substack{\text{y-1 números}\\ \text{menores que y}\\ \text{para ele ser o maior}}}}{{r \choose n}}}_{\substack{\text{Escolher n de r}\\ \text{sem ordem}\\}}$$
+
+Portanto:
+$$F_y(y)=P(Y\le y)= \sum_{y\in \Omega}p_y(y)$$
+
+Fazendo
+
+$$\sum_{y:k \in \Omega}p_y(k)=\sum_{y=2}^{k}\frac{(y-1)}{{r \choose n
+  }}\overbrace{=}^{x-1=i|_{1}^{k-1}}\sum_{i=1}^{k-1}\frac{i}{{r \choose n
+  }}\overbrace{=}^{j=k-1}\frac{\frac{j(j-1)}{2}}{{r \choose n}}=\frac{{j \choose n}}{{r\choose n}}$$
+
+Assim:
+
+$$p_y(y)=\begin{cases}
+  0&,y<n\\
+  \frac{{[y]\choose n}}{{r \choose n
+  }}&,\;n\le x < r\\
+  1&, y\ge r
+\end{cases}$$
+
+## b)
+
+Pensando em os 2 ("$n=2$") primeiros números:
+
+Para o 1 (i=1) ser menor, onde ele é o menor, temos:
+(A ordem não importa)
+
++ Se tirar 1 na $1^a$ jogada, $A$ (temos r-1 possib. de comparação)
+  + $|A|=r-1$
++ Se tirar 1 na $2^a$ jogada $B$ (temos r-1 possib. de comparação)
+  + $|B|=r-1$
++ Tirar 1 nas 2 jogadas $A\cap B$ (são disjuntos)
+  + $|A\cap B|=\emptyset$
+
+Assim
+$P(A\cup B)=P(A)+P(B)=\frac{r-1+r-1}{n.(n-1)}=\frac{2(r-1)}{n.(n-1)}$
+
+Fazendo para $k=i+1$ (2) ser o menor:
+
++ Se tirar k na $1^a$ jogada $A$ (temos r-2 possib. de comparação)
+  + $|A|=r-(i+1)$
++ Se tirar k na $2^a$ jogada $B$ (temos r-2 possib. de comparação)
+  + $|B|=r-(i+1)$
++ Tirar k nas 2 jogadas $A\cap B$ (são disjuntos)
+  + $|A\cap B|=\emptyset$
+
+Assim:
+
+$P(A\cup B)=P(A)+P(B)=\frac{r-(i+1)+r-(i+1)}{r.(r-1)}=\frac{2(r-(i+1))}{r.(r-1)}=\frac{2(r-k)}{r.(r-1)}=\frac{(r-k)2!(r.(r-1))!}{r!}=\frac{(r-k)}{{ r \choose 2}}$
+
+Extrapolando para $n=n$ temos:
+
++ Para $z\in\{1,2,...\:,r\}$
+$$P(Z=z)=\underbrace{\frac{\overbrace{r-z}^{\substack{\text{r-z números}\\ \text{maiores que z}\\ \text{para ele seja o menor}}}}{{r \choose n}}}_{\substack{\text{Escolher n de r}\\ \text{sem ordem}}}$$
+
++ Para $z\notin\{1,2,...\:,r\}$
+$$P(Z=z)=0$$
+
+Portanto:
+$$F_z(z)=P(Z\le z)= \sum_{z\in \Omega}p_z(z)$$
+
+Fazendo
+$$\sum_{z:k \in \Omega}p_z(k)=\sum_{z=1}^{k}\frac{(r-z)}{{r \choose n
+  }}=...(continuar)$$
+
+Assim:
+
+$$p(Z\ge z)=\begin{cases}
+  0&,y<n\\
+  \frac{{[y]\choose n}}{{r \choose n
+  }}&,\;n\le x < r\\
+  1&, y\ge r
+\end{cases}$$
+
+# Questão 11
+
+$$X:\Omega \rightarrow\mathbb{R}/X(\omega)\in\{0,\;\pm1,\;\pm 2\}$$
+
++ $\overbrace{P(X=-2)}^{1\;de\;2}=\overbrace{P(X=-1)}^{2\;de\;2}$
++ $P(X=1)=P(X=2)$
++ $P(X>0)=P(X<0)=P(X=0)$
++ $\underbrace{P(X=-2)+P(X=-1)}_{1\;de\;3}=\underbrace{P(X=2)+P(X=1)}_{2\;de\;3}=\underbrace{P(X=0)}_{3\;de\;3}$
+
+$P(X<0)=\frac{1}{3}$
+
+$P(x=1)=\frac{\frac{1}{2}}{3}=\frac{1}{6}$
+
+$$p_x(x)=
+\begin{cases}
+  \frac{1}{6}&, k=\pm1,\:\pm 2\\
+  \frac{1}{3}&,k=0\\
+  0&,\;c.c\\
+\end{cases}$$
+
+$$F_x(x)=
+\begin{cases}
+  0,& X<-2\\
+  \frac{1}{6},&-2\le X<-1\\
+  \frac{1}{3},&-1\le X<0\\
+  \frac{2}{3},&0\le X<1\\
+  \frac{5}{6},&1\le X<2\\
+  1,&X\ge 2\\
+\end{cases}$$
+
+# Questão 12
+
+$$F_x(x)=
+\begin{cases}
+  0&, X<-0\\
+  \frac{x}{2}&,0\le X<1\\
+  \frac{2}{3}&,1\le X<2\\
+  \frac{11}{12}&,2\le X<3\\
+  1&,X\ge 3\\
+\end{cases}$$
+
+## a)
+
+$$P(X<3)=\frac{11}{12}$$
+
+## b)
+
+$$P(X=1)=\frac{2}{3}$$
+
+## c)
+
+$$P(X=1)=\frac{2}{3}$$
+
+## d)
+
+$$P(X>\frac{1}{2})=1-P(X\le\frac{1}{2})=1-0$$
+
+## e)
+
+$$P(2<X\le4)=P(X\le4)-P(X\le 1)=1-\frac{2}{3}$$
+
+## f)
+
+$$P(2<X\le4)=P(X\le4)-P(X\le 1)=1-\frac{2}{3}$$
