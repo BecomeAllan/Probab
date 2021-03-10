@@ -1,0 +1,128 @@
+---
+title: "Atividade 1"
+author: "Allan"
+date: "05/03/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## a)
+
+O espaço de probabilidade $(\Omega,\mathcal{A},P)$ é definido como:
+
+$$\mathcal{A} = \mathcal{B}(\Omega)$$
+
+$$\Omega =[-10, 10] = \{x \in \mathbb{R}: x \in [-10,10] \}$$
+
+$$\forall A \in \mathcal{A}, P(A)= \frac{\text{"comprimento de "}A}{\text{"comprimento" de } \Omega}=\frac{\int_A dx}{\int_\Omega dx}=\int_Af(x)dx$$
+
+onde
+
+$$f(x)=\begin{cases}
+    \frac{1}{\int_\Omega dx}=\frac{1}{10-(-10)}=\frac{1}{20}, &x\in [-10,10]\\
+    0, & x \notin [-10,10]
+\end{cases}$$
+
+no qual
+
+$$\Omega=[-10,10] \subset \mathbb{R}$$
+$$\Omega =\int_{-10}^{10}dx=2\int_{0}^{10}dx=2(10-0)=20$$
+
+## b)
+
+Para a função $P:\mathcal{A} \rightarrow \mathbb{R}$ ser definida como uma medida de probabilidade:
+
++ (A1) $P(\Omega)=1$:
+  + Como $\Omega=[-10,10]$
+
+$$P(\Omega)=\int_\Omega f(x)dx=\int_{\Omega}\frac{1}{20}dx$$
+
+onde $x\in [-10,10]$ e
+
+$$P(\Omega)=\int_\Omega f(x)dx=0$$
+
+onde $x\notin [-10,10]$, então:
+
+$$P(\Omega)=\int_{\Omega}\frac{1}{20}dx=\frac{1}{20}\int_{-10}^{10}dx=\frac{(10-(-10))}{20}=1$$
+
++ (A2) $\forall A \in \mathcal{A}, P(A)\ge 0:$
+
+Se $A\in [-10,10]=\Omega$ então
+
+$$1=P(\Omega)\ge P(A)$$
+
+Para qualquer intervalo de $A \subset[-10,10]$
+
+Se $A\notin [-10,10]=\Omega$ então
+
+$$P(A)=0$$
+
+Pela definição de $\Omega$ para $P(A)=\int_A{f(x)dx}$ onde
+
+$$f(x)=\begin{cases}
+    \frac{1}{\int_\Omega dx}, &\Omega\in [-10,10]\\
+    0, & \Omega \notin [-10,10]
+\end{cases}$$
+
+Então a $P(A)\ge 0$
+
++ (A3) $P(\cup^{\infty}_{i=1} A_i)=\sum^{\infty}_{i=1}P(A_i)$ para $A_1, A_2,... \in \mathcal{A}$ e $A_i \cap A_j=\oslash$ para todo $i \neq j$:
+
+Como $\Omega=[-10,10]$ e definindo $A_i=(-21+i,-20+i)$,
+
+Assim $A_1=(-20,-19)$ e $A_2=(-19,-18)$ tem como $A_1\cap A_2=\oslash$, sendo assim para todo $A_i\cap A_j$ onde $i\neq j$ de $i=\{1,2,...\}$.
+
+E calculando $P(A)=P(\cup^{\infty}_{i=1}A_i)$
+
+$$\begin{aligned}
+    P(A)=P(\cup^{\infty}_{i=1}A_i) &=P(A_1\cup A_2 \cup...)\\
+    &=\int_{-20}^{\infty}f(x)dx\\
+    &=\int_{-20}^{-19}f(x)dx+\int_{-19}^{-18}f(x)dx+...=P(A_1)+P(A_2)+...\\
+    &=\sum^{\infty}_{i=1}P(A_i)\\
+\end{aligned}$$
+
+No qual $\sum^{\infty}_{i=1}P(A_i)=1$, pelo fato onde $A_i\notin \Omega, P(A_i)=0$ e $A_i\in \Omega, P(A_i)=\frac{1}{20}$.
+
+Calculado para todo os intervalos de $A_i$ onde todos os comprimento são igual a 1 dado por $\int_{A_i}dx=\int_{-21+i}^{-20+i}dx=-20+i-(-21+i)=1$
+
+## c)
+
+$A\in (0,\infty)$
+
+$B\in (2,8)$
+
+$$\begin{aligned}
+    P(B|A)=\frac{P(A\cap B)}{P(A)}&=\frac{\frac{1}{20}\int_{2}^{8}dx}{\frac{1}{20}(\int_{0}^{10}dx+\int_{10}^{\infty}dx)} \\
+    &=\frac{(8-2)}{(10-0)+0}=\frac{6}{10}
+\end{aligned}
+$$
+
+## d)
+
+$A= \{-10,-9,...,9,10 \}$
+
+$$P(A)= \frac{1}{20}\int_{A}dx=\frac{1}{20}\left(\int_{-10}^{-10}dx+\int_{-9}^{-9}dx+...+\int_{10}^{10}dx\right)=\frac{1}{20}+(0 + 0 +...+0)=0$$
+
+## e)
+
+$A=[-10,0)$
+
+$P(A)=\frac{1}{20}\int_{-10}^{0}dx=\frac{0-(-10)}{20}=\frac{10}{20}$
+
+$B=B_1\cup B_2$
+
+$B_1=0<x\le4$
+
+$B_1=-4>x\ge0$
+
+$P(B)=P(B_1)+P(B_2)=\frac{1}{20}(\int_{0}^{4}dx+\int_{-4}^{0}dx)=\frac{4+4}{20}=\frac{8}{20}$
+
+$$P(A).P(B)=\frac{10}{20}.\frac{8}{20}=\frac{4}{20}$$
+
+$$P(A\cap B)=\frac{1}{20}\int_{-4}^{0}dx=\frac{4}{20}$$
+
+Ou seja, $P(A\cap B)=P(A).P(B)$. Provando a independência
+
