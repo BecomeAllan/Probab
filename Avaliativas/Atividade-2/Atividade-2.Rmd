@@ -1,0 +1,101 @@
+---
+title: 'Atividade 2'
+author: 'Allan'
+date: '12/03/2021'
+output: 
+    pdf_document: 
+        extra_dependencies: ['mathtools']
+        latex_engine: pdflatex
+---
+
+# a)
+
+O espaço de probababilidade $(\Omega,\mathscr{A},P)$ é dado por:
+
+$$\Omega=\{1,2,3,4,5,6\},\:|\Omega|=6$$
+
+onde $P(\{\omega\})=\frac{1}{|\omega|}=\frac{1}{6}$
+
+no qual consideramos os eventos: $\begin{cases}
+    A^C =\{1,2,3,4,5\}\\
+    A=\{6\}
+\end{cases}$
+
+E usamos: $\begin{cases}
+    P(A^c)=\frac{5}{6}=1-p &\text{(fracasso})\\
+    P(A)=\frac{1}{6}=p & \text{(sucesso)}
+\end{cases}$
+
+Assim definimos a variável aleatória X como:
+
+$$\begin{aligned}
+X:\Omega\rightarrow\mathbb{R}/X(\omega_1,...\:,\omega_i)=x_i,\text{ onde } x_i\in\{1,2,...\:\}, \:\omega_i \in A, e \:\omega_j \in A^C, \\
+\forall \: j<i \:, \text{ no qual} \: i =\{1,2,3,...\}
+\end{aligned}$$
+
+Assim
+
+$$P(X=x)=\begin{cases}
+    p(1-p)^{x-1} &, x\in\{1,2,..\} \\
+    0 &,x\notin \{1,2,...\}
+\end{cases}$$
+
+# b)
+
+A função de probabilidade de X é dado por:
+
+$$p_x(x)=P(X=x)=\begin{cases}
+    \left(\frac{1}{6}\right).\left(\frac{5}{6}\right)^{x-1} &, x\in\{1,2,..\} \\
+    0 &,x\notin \{1,2,...\}
+\end{cases}$$
+
+Que satisfaz:
+
+$$\begin{aligned}
+\sum_{x=1}^{\infty} p_x(x)&=\sum_{x=1}^{\infty}p(1-p)^{x-1}\\
+&\overbrace{=}^{n=x-1}p\sum_{n=0}^{\infty}(1-p)^n\\
+&=p\frac{1}{1-(1-p)}\\
+&=1
+\end{aligned}$$
+
+No qual $X\sim Geo(1/6)$
+
+# c)
+
+A função de distribuição acumulada é dada por:
+
+$$\begin{aligned}
+    F_x(x)&=\sum_{i=1}^xp_x(x)\\
+    &=\sum_{x=1}^{x}p(1-p)^{x-1}\\
+    &\overbrace{=}^{n=x-1}p\sum_{n=0}^{x-1}(1-p)^n\\
+    &=p\frac{1-(1-p)^{x}}{1-(1-p)}\\
+    &=1-(1-p)^{x}
+\end{aligned}$$
+
+Assim a função $F_x(x)$:
+
+$$F_x(x)=\begin{cases}
+    0 &,x\le0\\
+    1-(\frac{5}{6})^{x} &,x>0
+\end{cases}$$
+
+# d)
+
+## (i)
+
+$$\begin{aligned}
+P(1<X<10)&=P(X\le9)-P(X\le1)\\
+&=F(9)-F(1)\\
+&=1-\left(\frac{5}{6}\right)^{9}-\left[1-\left(\frac{5}{6}\right)^{1}\right]\\
+&=\frac{5}{6}\left[1-\left(\frac{5}{6}\right)^{8}\right]\\
+\end{aligned}$$
+
+## (i)
+
+$$\begin{aligned}
+P\left(\{X\le2\}\cup\left\{\frac{14}{3}\le X<9\right\}\right)&=P\left(\{X\le2\}\cup\left\{4.67\le X<9\right\}\right)\\
+&=P\{X\le2\}+ P\left(\left\{4\le X\le8\right\}\right)\\
+&=F(2)+ F(8)-F(4)\\
+&=1-\left(\frac{5}{6}\right)^{2}+1-\left(\frac{5}{6}\right)^{8}-\left[1-\left(\frac{5}{6}\right)^{4}\right]\\
+&=1-\left(\frac{5}{6}\right)^{2}+\left(\frac{5}{6}\right)^{4}-\left(\frac{5}{6}\right)^{8}
+\end{aligned}$$
