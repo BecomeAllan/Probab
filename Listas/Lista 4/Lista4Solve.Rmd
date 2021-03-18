@@ -1,0 +1,433 @@
+---
+title: 'Lista 4'
+author: 'Allan'
+date: '16/03/2021'
+output: 
+    pdf_document: 
+        extra_dependencies: ['mathtools']
+        latex_engine: pdflatex
+---
+
+# Questão 1
+
+$$p_{X,Y}(x,y)=\begin{cases}
+    k(2x+y)&, \:x=1,2;\:y=1,2\\
+    0&, \text{ c.c}
+\end{cases}$$
+
+## a)
+
+$$\begin{aligned}
+\sum_{x}\sum_{y} p_{X,Y}(x,y)=&1\\
+\sum_{x=1}^2\sum_{y=1}^2k(2x+y)=&1\\
+\sum_{y=1}^2k(2+y)+k(2.2+y)=&1\\
+k(2+1)+k(2.2+1)+k(2+2)+k(2.2+2)=&1\\
+k(3)+k(5)+k(4)+k(6)=&1\\
+k(18)=&1\\
+k=&\frac{1}{18}\\
+\end{aligned}$$
+
+## b)
+
+$$\begin{aligned}
+p_{X}(x)=&\sum_{y} p_{X,Y}(x,y)\\
+=&\sum_{y=1}^2k(2x+y)\\
+=&k(2x+1)+k(2x+2)\\
+=&2kx+k+2kx+2k\\
+=&4kx+3k\\
+=&k(4x+3)\\
+=&\frac{1}{18}(4x+3)\\
+\end{aligned}$$
+
+$$\begin{aligned}
+p_{Y}(y)=&\sum_{x} p_{X,Y}(x,y)\\
+=&\sum_{x=1}^2k(2x+y)\\
+=&k(2+y)+k(2.2+y)\\
+=&2k+yk+4k+yk\\
+=&2yk+6k\\
+=&k(2y+6)\\
+=&\frac{1}{18}(2y+6)\\
+\end{aligned}$$
+
+## c)
+
+$$\begin{aligned}
+p_{X,Y}(x,y)&\overbrace{=}^{hip.}p_X(x).p_Y(y)\\
+p_{X,Y}(x,y)&=\frac{(4x+3)}{18}\frac{(2y+6)}{18}\\
+\frac{(2x+y)}{18}&\neq\frac{(4x+3)}{18}\frac{(2y+6)}{18}\\
+\end{aligned}$$
+
+# Questão 2
+
+X = números de caras de A
+
+Y = números de caras de B
+
++ $P(A)=\frac{1}{2}$
++ $P(B)=\frac{1}{4}$
+
+## a)
+
+$\{(x,y):x,y=\{0,1,2,3\}\}$
+
+## b)
+
+$\{(x,y):x,y=\{0,1,2,3\}\}$
+
+Jogas repetidas sem importar a ordem
+$$p_{x}(x)=\begin{cases}
+    { 3\choose x}\left(\frac{1}{2}\right)^x\left(\frac{1}{2}\right)^{3-x} &, \:x=\{0,1,2,3\}\\
+    0 &, \;c.c
+\end{cases}$$
+
+$$p_{y}(y)=\begin{cases}
+    { 3\choose y}\left(\frac{1}{4}\right)^y\left(\frac{3}{4}\right)^{3-y} &, \:y=\{0,1,2,3\}\\
+    0 &, \;c.c
+\end{cases}$$
+
+## c)
+
+Pensar que existe 3 lançamentos onde **todas** vão ter algum resultado entre cara e coroa da escolha aleatória de moedas distintas (A e B):
+
+$$\frac{}{1}\frac{}{2}\frac{}{3}$$
+
+(Não importa a ordem e com repetição)
+A jogada não é enumerada e os resultado **cara** e **coroa** pode ser escolhido varias vezes de moedas distintas pra 3 lançamentos. No qual a probabilidade de escolher uma cara depende de qual foi a moeda escolhida
+
+$$p_{x,y}(x,y)=\begin{cases}
+    { 3\choose x \ y}\left(\frac{1}{2}\right)^x\left(\frac{1}{4}\right)^{y}\left(\frac{3}{4}\right)^{3-y}\left(\frac{1}{2}\right)^{3-x}&, \:x+y\leq3\:;x,y=\{0,1,2,3\}\\
+    0 &, \;c.c
+\end{cases}$$
+
+## d)
+
+
+
+$$\begin{aligned}
+    P(X=Y)&=\sum_{y=0}^{3} P(X=y,Y=y)\\
+    &=\sum_{y=0}^{3} P(X=y).P(Y=y)\\
+\end{aligned}$$
+
+$$\begin{aligned}
+    P(X>Y)&=\sum_{y=0}^{3} P(X>y,Y=y)\\
+    &=\sum_{y=0}^{3} P(X>y).P(Y=y)\\
+\end{aligned}$$
+
+$$\begin{aligned}
+    P(X+Y\leq 4)&=\sum_{y=0}^{3} P(X\leq 4-y,Y=y)\\
+    &=\sum_{y=0}^{3} P(X\leq 4-y).P(Y=y)\\
+\end{aligned}$$
+
+# Questão 3
+
+$X\sim Geo(p)$
+
+$Y=\min(X,M)=\begin{cases}
+    X&,X<M\\
+    M&,X\ge M\\
+\end{cases}$
+
+$$\begin{aligned}
+P(Y=y) &=P(\min(X,M)=y,\overbrace{\Omega}^{(x<M)\cup(x\ge M)})\\
+&=P\overbrace{(\min(X,M)=y,X<M)}^{Impõe\:X=y} + P\overbrace{(\min(X,M)=y,X\ge M)}^{M=y}\\
+&=P\overbrace{(X=y,X<M)}^{y<M} + P\overbrace{(X\ge M)}^{y=M}\\
+&=\begin{cases}
+    P(X=y)&,y=\{1,2,...,M-1\}\\
+    P(X\ge M)&,y=M\\
+    0&, \;c.c
+\end{cases}\\
+\end{aligned}$$
+
+Queremos saber sobre y, assim procuramos seus limites.
+
+# Questão 4
+
+$$\sum_{i=1}^6x_i = 10$$
+$$\vec{x}=(x_1,x_2,x_3,x_4,x_5,x_6)$$
+
+## a)
+
+Pensar que existe 10 lançamentos onde **todas** vão ter algum resultado i:
+
+$$\frac{}{1}\frac{}{2}\frac{}{3}...\frac{}{9}\frac{}{10}$$
+
+(Não importa a ordem e com repetição)
+Pois a jogada não é enumerada e uma resultado pode ser escolhido varias vezes pra 10 lançamentos. No qual a probabilidade de escolher um resultado é de 1/10
+
+$$p_{\vec{x}}=\begin{cases}
+    {10 \choose x_1,x_2,x_3,x_4,x_5,x_6}\prod_{i=1}^{6}\left(\frac{1}{6}\right)^{x_i}&,\sum_{i=1}^6x_i = 10 ; \: 0\le x_i\le10\\
+    0&, \; c.c
+\end{cases}$$
+
+## b)
+
+$$p_{x_i}=\sum_{\substack{0\le x_j\le 10\\x_i+\sum_{j\neq i} x_j=10\\i=(1,2,3,4,5,6)}}P(X_i=x_i)={10 \choose x_i}\left(\frac{1}{6}\right)^{x_i}\left(\frac{5}{6}\right)^{10-x_i}$$
+
+$$X_i\sim B(10,1/6)\:X_i=(1,2,3,4,5,6)$$
+
+## c)
+
+Não, pois o resultado de quantas vezes saiu o valor i, depende de quantas vezes saiu os outros valores diferentes de i. O que diz respeito a probabilidade de i ($p_i$) ser o complementar dos valores diferentes de i, ($\sum_{j\neq i}p_j=1-p_i$).
+
+# Questão 5
+
+$$\sum_{i=1}^{r}x_i = 2r$$
+$$\vec{X}=(X_1,X_2,X_3,...,\:X_{r-1},X_{r})$$
+
+## a)
+
+$X_i=\{\text{caixa i com }x_i\text{ bolas }\}$
+
+Pensar que existe 2r bolas onde **todas** vão ter alguma caixa:
+
+$$\frac{}{1}\frac{}{2}\frac{}{3}...\frac{}{2r-1}\frac{}{2r}$$
+
+(Não importa a ordem e com repetição)
+pois a bola não é enumerada e uma caixa podem ser escolhidas varias vezes pra 2r bolas. No qual a probabilidade de escolher uma caixa é de 1/r
+
+$$p_{\vec{X}}(\vec{x})=\begin{cases}
+    {2r \choose x_1,x_2,...,x_r}\prod_{i=1}^r\left(\frac{1}{r}\right)^{x_i}&,\sum_{i=1}^{r}x_i = 2r;\;0\le x_i\le2r\\
+    0&,\; c.c
+\end{cases}$$
+
+## b)
+
+$$P_{\vec{X}}(2)={2r \choose 2,2,...,2}\left(\frac{1}{r}\right)^{2r}$$
+
+# Questão 6
+
+## a)
+
+$$\begin{aligned}
+    P(X\ge Y)=\sum_{y}P(X\ge Y,Y=y)&=\sum_{y}P(X\ge y,Y=y)\\
+    &=\sum_{y=0}^NP(X\ge y)P(y= y)\\
+    &=\sum_{y=0}^N[1-P(X<y)]P(y= y)\\
+    &=\sum_{y=0}^N[1-P(X\le y-1)]P(y= y)\\
+    &=\sum_{y=0}^N\left[1-\frac{y-1-0+1}{N+1}\right]\frac{1}{N+1}\\
+    &=\sum_{y=0}^N\left[1-\frac{y}{N+1}\right]\frac{1}{N+1}\\
+    &=\frac{1}{N+1}\left[\sum_{y=0}^N1-\frac{1}{N+1}\sum_{y=0}^Ny\right]\\
+    &=\frac{1}{N+1}\left[(N+1)-\frac{(N(N+1))}{2(N+1)}\right]\\
+    &=\left[1-\frac{N}{2(N+1)}\right]\\
+\end{aligned}$$
+
+## b)
+
+$$\begin{aligned}
+    P(X= Y)=\sum_{y}P(X= Y,Y=y)&=\sum_{y}P(X= y,Y=y)\\
+    ind.&=\sum_{y=0}^NP(X= y)P(y= y)\\
+    &=\sum_{y=0}^N\frac{1}{N+1}\frac{1}{N+1}\\
+    &=\frac{N+1}{(N+1)^2}\\
+    &=\frac{1}{(N+1)}\\
+\end{aligned}$$
+
+## c)
+
+$$Z=\min(X,Y), \;X,Y = \{0,1,2,...,N\}$$
+
+$Z\in\{0,1,...,N\}:$
+$$\begin{aligned}
+    P(Z=z)&=P(\min(X,Y)=z)\\
+    &=P(\min(X,Y)=z,X<Y)+P(\min(X,Y)=z,X\ge Y)\\
+    &=P(X=z,X<Y)+P(Y=z,X\ge Y)\\
+    &=P(X=z,z<Y)+P(Y=z,X\ge z)\\
+   ind. &=P(X=z)P(Y>z)+P(Y=z)P(X\ge z)\\
+    &=\frac{1}{(N+1)}[1-P(Y\le z)]+\frac{1}{(N+1)}[1-P(X\le z-1)]\\
+    &=\frac{1}{(N+1)}\left[1-\frac{z-0+1}{N+1}\right]+\frac{1}{(N+1)}\left[1-\frac{z-1-0+1}{N+1}\right]\\
+    &=\frac{1}{(N+1)}\left[1-\frac{z+1}{N+1}\right]+\frac{1}{(N+1)}\left[1-\frac{z}{N+1}\right]\\
+    &=\frac{1}{(N+1)}\left[\frac{N+1-(z+1)}{N+1}\right]+\frac{1}{(N+1)}\left[\frac{N+1-z}{N+1}\right]\\
+    &=\frac{(N+1)-(z+1)}{(N+1)^2}+\frac{(N+1)-z}{(N+1)^2}\\
+    &=\frac{2(N+1)-2z-1}{(N+1)^2}\\
+    &=\frac{2(N-z)+1}{(N+1)^2}\\
+\end{aligned}$$
+
+$$p_Z(z)=\begin{cases}
+    \frac{2(N-z)+1}{(N+1)^2}&,\;z=\{0,1,..,N\}\\
+    0&,\:c.c
+\end{cases}$$
+
+## d)
+
+$$W=\max(X,Y), \;X,Y = \{0,1,2,...,N\}$$
+
+$W\in\{0,1,...,N\}:$
+$$\begin{aligned}
+    P(W=w)&=P(\max(X,Y)=w)\\
+    &=P(\max(X,Y)=w,X\le Y)+P(\max(X,Y)=w,X> Y)\\
+    &=P(Y=w,X\le Y)+P(X=w,X> Y)\\
+    &=P(Y=w,X\le w)+P(X=w,w> Y)\\
+   ind. &=P(Y=w)P(X\le w)+P(X=w)P(Y\le w-1)\\
+    &=\frac{1}{(N+1)}[P(X\le w)]+\frac{1}{(N+1)}[P(Y\le w-1)]\\
+    &=\frac{1}{(N+1)}\left[\frac{w-0+1}{N+1}\right]+\frac{1}{(N+1)}\left[\frac{w-1-0+1}{N+1}\right]\\
+    &=\frac{1}{(N+1)}\left[\frac{w+1}{N+1}\right]+\frac{1}{(N+1)}\left[\frac{w}{N+1}\right]\\
+    &=\frac{2w+1}{(N+1)^2}\\
+\end{aligned}$$
+
+$$p_W(w)=\begin{cases}
+    \frac{2w+1}{(N+1)^2}&,\;w=\{0,1,..,N\}\\
+    0&,\:c.c
+\end{cases}$$
+
+## e)
+
+$$U=|Y-X|, \;X,Y = \{0,1,2,...,N\}$$
+
+$U=0:$
+$$\begin{aligned}
+    P(U=0)&=P(|Y-X|=0)\\
+    &=P(Y-X=0)\\
+    &=P(Y=X)\\
+    &=\frac{1}{N+1}
+\end{aligned}$$
+
+
+$U\in\{1,...,N\}:$
+$$\begin{aligned}
+    P(u=u)&=P(|Y-X|=u)\\
+    &=P(|Y-X|=u,Y-X<0)+P(|Y-X|=u,Y-X>0)\\
+    &+P(|Y-X|=u,Y-X=0)\\
+    &=P(Y-X=-u,Y-X<0)+P(Y-X=u,Y-X>0)+0\\
+    &=P(X=Y+u,X>Y)+P(Y=X+u,Y>X)\\
+    &=P(X=Y+u)+P(Y=X+u)\\
+    i.i.d&=2P(X=Y+u)\\
+    &=2\sum_{y=0}^{N}P(X=y+u,Y=y)\\
+    &=2\sum_{y=0}^{N}P(X=\overbrace{y+u}^{0\le y+u \le N})P(Y=y)\\
+   (y\le N-u) &=2\sum_{y=0}^{N-u}\frac{1}{N+1}\frac{1}{N+1}\\
+    &=\frac{2(N-u+1)}{(N+1)^2}\\
+\end{aligned}$$
+
+$$p_u(u)=\begin{cases}
+    \frac{1}{(N+1)}&,\;u=0\\
+    \frac{2(N-u+1)}{(N+1)^2}&,\;u=\{1,..,N\}\\
+    0&,\:c.c
+\end{cases}$$
+
+# Questão 7
+
+$X:p =p_1$
+$Y:p =p_2$
+$$p_x(k)=p_y(k)=\begin{cases}
+    p(1-p)^{k-1}&,\;k=\{1,2,...\}\\
+    0&,\:c.c
+\end{cases}$$
+
+## a)
+
+$$\begin{aligned}
+    P(X\ge Y)&=P(Y\le X)\\
+    &=P(Y\le X,X=\mathbb{R})\\
+    &=\sum_{x=1}^{\infty}P(Y\le X,X=x)\\
+    &=\sum_{x=1}^{\infty}P(Y\le x,X=x)\\
+    ind.&=\sum_{x=1}^{\infty}P(Y\le x)P(X=x)\\
+    &=\sum_{x=1}^{\infty}[1-(1-p_2)^x][p_1.(1-p_1)^{x-1}]\\
+    &=\sum_{x=1}^{\infty}[p_1.(1-p_1)^{x-1}-p_1.(1-p_1)^{x-1}.(1-p_2)^x]\\
+    &=\sum_{x=1}^{\infty}\left[\frac{p_1.(1-p_1)^x}{(1-p_1)}-\frac{p_1.[(1-p_1).(1-p_2)]^x}{(1-p_1)}\right]\\
+    &=\frac{p_1}{(1-p_1)}\sum_{x=1}^{\infty}\left[(1-p_1)^x-[(1-p_1).(1-p_2)]^x\right]\\
+    &=\frac{p_1}{(1-p_1)}\left[\frac{1}{1-(1-p_1)}-\frac{1}{1-(1-p_1).(1-p_2)}\right]\\
+    &=...
+\end{aligned}$$
+
+## b)
+
+$$\begin{aligned}
+    P(X= Y)&=P(X=Y,Y=\mathbb{R})\\
+    &=\sum_{y=1}^{\infty}P(X= Y,Y=y)\\
+    &=\sum_{y=1}^{\infty}P(X= y,Y=y)\\
+    ind.&=\sum_{y=1}^{\infty}P(X=y)P(Y=y)\\
+    &=\sum_{y=1}^{\infty}[p_1(1-p_1)^{y-1}][p_2.(1-p_2)^{y-1}]\\
+    &=p_1.p_2\sum_{y=1}^{\infty}(1-p_1)^{y-1}(1-p_2)^{y-1}\\
+    &=p_1.p_2\sum_{y=1}^{\infty}[(1-p_1)(1-p_2)]^{y-1}\\
+    &=\frac{p_1.p_2}{1-(1-p_1)(1-p_2)}\\
+    &=...
+\end{aligned}$$
+
+## c)
+
+$$Z=\min(X,Y), \;X,Y = \{1,2,...\}$$
+
+$Z\in\{1,2,...\}:$
+$$\begin{aligned}
+    P(Z=z)&=P(\min(X,Y)=z)\\
+    &=P(\min(X,Y)=z,X<Y)+P(\min(X,Y)=z,X\ge Y)\\
+    &=P(X=z,X<Y)+P(Y=z,X\ge Y)\\
+    &=P(X=z,z<Y)+P(Y=z,X\ge z)\\
+   ind. &=P(X=z)P(Y>z)+P(Y=z)P(X\ge z)\\
+    &=P(X=z)[1-P(Y\le z)]+P(Y=z)[1-P(X\le z-1)]\\
+    &=... (Substitui \;ai)
+\end{aligned}$$
+
+
+## c)
+
+$$W=X+Y$$
+
+
+$W\in\{2,3,...\}:$
+$$\begin{aligned}
+    P(W=w)&=P(X+Y=w)\\
+    &=P(X=w-Y, Y=\mathbb{R})\\
+    &=\sum_{y=1}^{\infty}P(X=w-y, Y=y)\\
+    ind.&=\sum_{y=1}^{\infty}P(X=\overbrace{w-y}^{1\le w-y\le \infty})P(Y=y)\\
+    (-\infty\le y \le w-1)\rightarrow (1\le y \le w-1)&=\sum_{y=1}^{w-1}P(X=w-y)P(Y=y)\\
+    &=\sum_{y=1}^{w-1}p_1(1-p_1)^{w-y-1}p_2(1-p_2)^{y-1}\\
+    &=p_1.p_2.(1-p_1)^w\sum_{y=1}^{w-1}(1-p_1)^{-y-1}(1-p_2)^{y-1}\\
+    &=p_1.p_2.(1-p_1)^w\sum_{y=1}^{w-1}\frac{(1-p_2)^{y-1}}{(1-p_1)^{y+1}}\\
+    &=\frac{p_1.p_2.(1-p_1)^w}{(1-p_2)(1-p_1)}\sum_{y=1}^{w-1}\left[\frac{(1-p_2)}{(1-p_1)}\right]^{y}\\
+    &=\frac{p_1.p_2.(1-p_1)^w}{(1-p_2)(1-p_1)}\frac{1-\left[\frac{(1-p_2)}{(1-p_1)}\right]^{w-1+1}}{1-\left[\frac{(1-p_2)}{(1-p_1)}\right]}\\
+    &=\frac{p_1.p_2.(1-p_1)^w}{(1-p_2)(1-p_1)}\frac{1-\left[\frac{(1-p_2)}{(1-p_1)}\right]^{w}}{1-\left[\frac{(1-p_2)}{(1-p_1)}\right]}\\
+    &=...(Alguma \:coisa \: ai )
+\end{aligned}$$
+
+# Questão 8
+
+$$X,Y\in(1,2,...)$$
+$Z=Y-X \rightarrow P(Y-X=z)=P(Y=z+X)$
+$$Z\in\mathbb{R}$$
+$W=\min(X,Y)\rightarrow P(\min(X,Y)=w)=P(X=w,X<Y)+P(Y=w,X\ge Y)$
+$$W\in(1,2,...)$$
+
+## a) (?)
+
+$Z\ge0$
+$$\begin{aligned}
+    P(W=w,Z=z)&=P(X=w,X<Y,Y=z+X)+P(Y=w,X\ge Y,Y=z+X)\\
+    &=P(X=w,w<Y,Y=z+w)+P(Y=w,X\ge w,w=z+X)\\
+    &=P(X=w,Y>w,Y=z+w)+P(Y=w,X\ge w,X=w-z)\\
+    &=P(X=w,Y=z+w)+P(Y=w,X= w)\\
+    &=P(X=w)P(Y=z+w)+P(Y=w)P(X= w)\\
+    &=P(X=w)[P(Y=z+w)+P(Y=w)]\\
+\end{aligned}$$
+
+# Questão 9
+
+$$Z=X+Y$$
+
+$$P(Z=z)=P(X+Y=z)=P(X=z-Y)=P(X=z-Y,Y=\mathbb{R})$$
+
+## a) X,Y (Poisson)
+
+
+$Z\in(0,1,...)$
+$$\begin{aligned}
+    P(Z=z)&=\sum_{y=0}^{\infty}P(X=z-y,Y=y)\\
+    &=\sum_{y=0}^{\infty}P(X=\overbrace{z-y}^{0\le z-y\le \infty})P(Y=y)\\
+    (0\le y \le z) &=\sum_{y=0}^{z}\frac{e^{-\lambda_1}\lambda_1^{z-y}}{(z-y)!}\frac{e^{-\lambda_2}\lambda_2^y}{y!}\\
+    &=\sum_{y=0}^{z}\frac{e^{-(\lambda_1+\lambda_2)}\lambda_1^{z-y}}{(z-y)!}\frac{\lambda_2^y}{y!}\frac{z!}{z!}\\
+    &=\sum_{y=0}^{z}{z \choose y}\frac{e^{-(\lambda_1+\lambda_2)}\lambda_1^{z-y}\lambda_2^y}{z!}\\
+    &=\frac{e^{-(\lambda_1+\lambda_2)}(\lambda_1+ \lambda_2)^z}{z!}\\
+\end{aligned}$$
+
+$$p_Z(z)=\begin{cases}
+    \frac{e^{-(\lambda_1+\lambda_2)}(\lambda_1+ \lambda_2)^z}{z!}&,x=0,1,...\\
+    0 &, \; c.c
+\end{cases}$$
+
+$$Z\sim Poisson(\lambda_1+\lambda_2)$$
+
+## b) X,Y (uniforme)
+
+$Z=(2,3,4,...,2N-1,2N)$
+$$\begin{aligned}
+    P(Z=z)&=\sum_{y=0}^{\infty}P(X=z-y,Y=y)\\
+    &=\sum_{y=0}^{\infty}P(X=\overbrace{z-y}^{0\le z-y\le \infty})P(Y=y)\\
+    (0\le y \le z) &=\sum_{y=0}^{z}\frac{e^{-\lambda_1}\lambda_1^{z-y}}{(z-y)!}\frac{e^{-\lambda_2}\lambda_2^y}{y!}\\
+\end{aligned}$$
