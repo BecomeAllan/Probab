@@ -426,8 +426,61 @@ $$Z\sim Poisson(\lambda_1+\lambda_2)$$
 ## b) X,Y (uniforme)
 
 $Z=(2,3,4,...,2N-1,2N)$
+
+$X,Y=(1,2,3,...,N-1,N)$
+
 $$\begin{aligned}
-    P(Z=z)&=\sum_{y=0}^{\infty}P(X=z-y,Y=y)\\
-    &=\sum_{y=0}^{\infty}P(X=\overbrace{z-y}^{0\le z-y\le \infty})P(Y=y)\\
-    (0\le y \le z) &=\sum_{y=0}^{z}\frac{e^{-\lambda_1}\lambda_1^{z-y}}{(z-y)!}\frac{e^{-\lambda_2}\lambda_2^y}{y!}\\
+    P(Z=z)&=\sum_{y=1}^{N}P(X=z-y,Y=y)\\
+    &=\sum_{y=1}^{N}P(X=\overbrace{z-y}^{1\le z-y\le N})P(Y=y)\\
 \end{aligned}$$
+
+Para $\underbrace{z-N}_{=1}\le y\le \underbrace{z-1}_{=N}$
+
+Pra $(1\le y \le N)$ ser verdade, temos:
+
+$Z\in(2,3,...\:,N)$
+
+$"1\le y\le z-1"$
+
+$$\begin{aligned}
+    P(Z=z)&=\sum_{y=1}^{z-1}P(X=z-y)P(Y=y)\\
+    &=\sum_{y=1}^{z-1}\frac{1}{N}\frac{1}{N}\\
+    &=\frac{z-1}{N^2}\\
+\end{aligned}$$
+
+$Z\in(N+1,N+2,...,2N)$
+
+$"z-N\le y\le N"$
+
+$$\begin{aligned}
+    P(Z=z)&=\sum_{y=z-N}^{N}P(X=z-y)P(Y=y)\\
+    &=\sum_{y=z-N}^{N}\frac{1}{N}\frac{1}{N}\\
+    &=\frac{N-(z-N)+1}{N^2}\\
+\end{aligned}$$
+
+
+$$p_z(z)=\begin{cases}
+    \frac{z-1}{N^2}&, z \in \{ 2,3,...\:,N\}\\
+    \frac{N-(z-N)+1}{N^2}&,z \in \{ N+1,N+2,...\:,2N\}\\
+    0&, \: c.c\\
+\end{cases}$$
+
+# Questão 10
+
+$$Z=X_1+...+X_l$$
+
+$$\begin{aligned}
+    P(Z=z)&=P(\sum_{j=1}^{l}X_j=z)\\
+    &=P(X_1=z-\sum_{j=2}^{l}X_j)\\
+    &=P\left(\left\{X_1=z-\sum_{j=2}^{l}x_j\right\}\bigcap_{k=2}^{l}\{X_k=x_k\}\right)\\
+    i.i.d&=\sum_{x_2}\sum_{x_3}...\sum_{x_l}P\left(\left\{X_1=z-\sum_{j=2}^{l}x_j\right\}\right)\prod_{k=2}^{l}P(X_k=x_k)\\
+    &=\sum_{x_2}\sum_{x_3}...\sum_{x_l} \frac{e^{-\lambda_1}\lambda_1^{z-(\sum_{j=2}^{l}x_j)}}{(z-\sum_{j=2}^{l}x_j)!}\prod_{k=2}^{l}\frac{e^{-\lambda_k}\lambda_k^{x_k}}{(x_k)!}\\
+    &=\sum_{x_2}\sum_{x_3}...\sum_{x_l}e^{-(\sum_{k=1}^{l}\lambda_k)}\frac{\lambda_1^{z-(\sum_{j=2}^{l}x_j)}}{(z-\sum_{j=2}^{l}x_j)!}\prod_{k=2}^{l}\frac{\lambda_k^{x_k}}{(x_k)!}\\
+    ...^{x_1=z-(\sum_{j=2}^{l}x_j)}&=\sum_{x_2}\sum_{x_3}...\sum_{x_l}e^{-(\sum_{k=1}^{l}\lambda_k)}\frac{\lambda_1^{x_1}}{(x_1)!}\prod_{k=2}^{l}\frac{\lambda_k^{x_k}}{(x_k)!}\frac{z!}{z!}\\
+    &=\sum_{x_2}\sum_{x_3}...\sum_{x_l}e^{-(\sum_{k=1}^{l}\lambda_k)}\prod_{k=1}^{l}\frac{\lambda_k^{x_k}}{(x_k)!}\frac{z!}{z!}\\
+    &=e^{-(\sum_{k=1}^{l}\lambda_k)}\frac{1}{z!}\sum_{x_2}\sum_{x_3}...\sum_{x_l}{ z \choose x_1,x_2,...,x_l}\prod_{k=1}^{l}\lambda_k^{x_k}\\
+    &=e^{-(\sum_{k=1}^{l}\lambda_k)}\frac{\left[\sum_{k=1}^{l}\lambda_k^{x_k}\right]^z}{z!}
+\end{aligned}$$
+
+Então:
+$$Z \sim Poisson\left(\sum_{j=1}^l x_j\right)$$
