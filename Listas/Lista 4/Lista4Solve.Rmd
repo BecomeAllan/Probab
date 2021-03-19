@@ -484,3 +484,100 @@ $$\begin{aligned}
 
 Então:
 $$Z \sim Poisson\left(\sum_{j=1}^l x_j\right)$$
+
+# Questão 11
+
+Os resultados possíveis são apenas 1,2 e 3, onde os respectivos números são correlacionados com a probabilidade $p_1,p_2\;,p_3$. Assim sendo com reposição a distribuição $\vec{X}$ é uma multinomial, no qual $X_1,X_2\;,X_3$ tem distribuição binomial com o complementar de $p$ sendo o resultado diferente daquele que ele atribui.
+
+$X_1,X_2,X_3\in \{0,1,...,n\}$
+
+## a)
+
+$$\begin{aligned}
+    P(X_1+X_2=z)&=P(X_1=z-X_2,X_2=\mathbb{R})\\
+    &=\sum_{k=0}^n P(X_1=z-k,X_2=k,X_3=0)\\
+    &=\sum_{k=0}^n {n \choose z-k,k,0 }p_1^{z-k}p_2^{k}p_3^{0}\\
+    &=\sum_{k=0}^n \frac{n!}{(z-k)!k!}p_1^{z-k}p_2^{k}\\
+    &=...
+\end{aligned}$$
+
+## b)
+
+$y\in \mathbb{R}$
+
+$$\begin{aligned}
+    P(X_2=y|X_1+X_2=z)&=\frac{P(X_2=y,X_1+X_2=z)}{P(X_1+X_2=z)}\\
+    &=\frac{P(X_2=y,X_1=z-X_2)}{P(X_1+X_2=z)}\\
+    &=\frac{\sum_{k=0}^{n} P(X_2=k,X_1=z-k,X_3=0)}{P(X_1+X_2=z)}\\
+    &=\frac{\sum_{k=0}^{n} {n \choose z-k,k,0}p_1^{z-k}p_2^kp_3^0}{{n \choose z}(p_1+p_2)^z(1-(p_1+p_2))^{n-z}}\\
+    &=\frac{\sum_{k=0}^{n} \frac{n!}{(z-k)!k!}p_1^{z-k}p_2^k}{\frac{n!}{z!(n-z)!}(p_1+p_2)^z(1-(p_1+p_2))^{n-z}}\\
+    &=\sum_{k=0}^{n}{z \choose k}\left[\frac{(1-(p_1+p_2))p_1}{p_1+p_2}\right]^z\left[\frac{p_2}{p_1}\right]^k\frac{ (n-z)!}{(1-(p_1+p_2))^{n}}\\
+    &=...
+\end{aligned}$$
+
+# Questão 12
+
+$$X\sim Poisson(\lambda)$$
+## a)
+
+
+$\lambda=n.p=50.(0.05)=2.5$
+
+$$\begin{aligned}
+    P(X\le 2)=&F_X(2)\\
+    =&e^{-2.5}\left[\frac{(2.5)^0}{0!} + \frac{(2.5)^1}{1!}+ \frac{(2.5)^2}{2!}\right]\\
+    =& e^{-2.5}\frac{2+2(2.5)+(2.5)^2}{2}\\
+\end{aligned}$$
+
+## b)
+
+$\lambda=n.p=100.(0.03)=3$
+
+$$\begin{aligned}
+    P(X\le 2)=&F_X(2)\\
+    =&e^{-3}\left[\frac{3^0}{0!}+\frac{3^1}{1!}+\frac{3^2}{2!}\right]\\
+    =&e^{-3}\frac{2+2(3)+9}{2}
+\end{aligned}$$
+
+# Questão 13
+
+$$X\sim Geom(1/6)$$
+
+## a)
+
+$$\begin{aligned}
+    P(X\le 6)=&F_X(6)\\
+    =& 1-\left(\frac{5}{6}\right)^6\\
+\end{aligned}$$
+
+## a)
+
+$X\in\{1,2,...\}$
+
+$$\begin{aligned}
+    P(X\le x)\ge&\frac{1}{2}\\
+    p(1-p)^{x-1}\ge& \frac{1}{2}\\
+    (1-p)^{x}\ge& \frac{(1-p)}{2p}\\
+    x\log(1-p)\ge& \log\left[\frac{(1-p)}{2p}\right]\\
+    x\ge& \frac{\log\left[\frac{(1-p)}{2p}\right]}{\log(1-p)}\\
+    x\ge& \frac{\log\left[\frac{5/6}{2/6}\right]}{\log(5/6)}\\
+    x\ge& \frac{\log\left[\frac{5}{2}\right]}{\log(5/6)}\\
+\end{aligned}$$
+
+# Questão 14
+
+$z \in \{0,1,...\}$
+
+$x \in \mathbb{R}$
+
+$$\begin{aligned}
+    P(X=x|X+Y=z)=&\frac{P(X=x,X+Y=z)}{P(X+Y=z)}\\
+    =&\frac{P(X=x,Y=z-x)}{P(Y=z-x)}\\
+    =&\frac{P(X=x)P(Y=z-x)}{P(Y=z-x)}\\
+    =&\frac{e^{-x}\frac{\lambda_1^x}{x!}e^{-(z-x)}\frac{\lambda_2^{z-x}}{(z-x)!}}{e^{-(z-x)}\frac{\lambda_2^{z-x}}{(z-x)!}}\\
+\end{aligned}$$
+
+# Questão 15
+
+
+$$P(X=x,Y=y,Z=z|X+Y+Z=m)$$
