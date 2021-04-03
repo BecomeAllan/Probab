@@ -1,0 +1,180 @@
+---
+title: 'Lista 6'
+author: 'Allan'
+date: '02/04/2021'
+output: 
+    pdf_document: 
+        extra_dependencies: ['mathtools']
+        latex_engine: pdflatex
+---
+
+# Questão 1
+
+$$
+p(x)=
+\begin{cases}
+    \frac{1}{N} &,\;x\in\{1,...,N\}\\
+    0 &,\;c.c\\
+\end{cases}$$
+
+$$
+EX=\sum_x xp(x)=
+\sum_{x=1}^N \frac{x}{N}=
+\frac{N(N+1)}{2}\frac{1}{N}=
+\frac{N+1}{2}
+$$
+
+$$
+EX^2=\sum_x x^2p(x)=
+\sum_{x=1}^N \frac{x^2}{N}=
+\frac{N(N+1)(2N+1)}{6}\frac{1}{N}=
+\frac{(N+1)(2N+1)}{6}
+$$
+
+Então
+$$\begin{aligned}
+VarX&=
+EX^2-(EX)^2=
+\frac{(N+1)(2N+1)}{6}-\left(\frac{N+1}{2}\right)^2=\\
+&=
+\frac{(N+1)(2N+1)}{6}-\left(\frac{N+1}{2}\right)^2=
+\frac{2(N+1)(2N+1)-3(N+1)(N+1)}{12}=\\
+=&
+\frac{(N+1)(2(2N+1)-3(N+1))}{12}=
+\frac{(N+1)(4N+2-3N-3)}{12}=
+\frac{(N+1)(N-1)}{12}=\\
+=&
+\frac{N^2-1}{12}
+\end{aligned}$$
+
+
+# Questão 2
+
+## a)
+
+$$\lim_{X\rightarrow \infty} \frac{(X+1)^{-(r+2)}}{X^{-(r+2)}}=...$$
+
+$$\sum_{x=1}^\infty \frac{1}{c}x^{-(r+2)}=1
+\Rightarrow c=\sum_{x=1}^\infty x^{-(r+2)}$$
+
+## b)
+
+$$EX^r=
+\sum_{x=1}^\infty x^r \frac{x^{-(r+2)}}{\sum_{x=1}^\infty x^{-(r+2)}}=
+\sum_{x=1}^\infty \frac{x^{-2}}{\sum_{x=1}^\infty x^{-(r+2)}}=
+\sum_{x=1}^\infty \frac{1}{\sum_{x=1}^\infty x^{-(r+2)+2}}=
+\sum_{x=1}^\infty \frac{1}{\sum_{x=1}^\infty x^{-r}}=
+$$
+
+# Questão 3
+
+$$\begin{aligned}
+EX^2=&
+\sum_x x.x p_x(x)=
+\sum_{x=r}^{\infty}
+x.x {x-1 \choose r-1}p^r(1-p)^{x-r}=
+\sum_{x=r}^{\infty}
+\frac{x.x!}{(x-r)!(r-1)!}p^r(1-p)^{x-r}=\\
+=&
+\sum_{x=r}^{\infty}
+\frac{r}{r}\frac{x.x!}{(x-r)!(r-1)!}p^r(1-p)^{x-r}=
+\sum_{x=r}^{\infty}
+r\frac{x.x!}{(x-r)!(r)!}p^{r+1-1}(1-p)^{x-r}=\\
+=&
+\frac{r}{p}
+\sum_{x=r}^{\infty}
+x{x \choose r}p^{r+1}(1-p)^{x-r}=
+\frac{r}{p}\frac{r}{p}
+\end{aligned}$$
+...
+
+# Questão 4
+
+$$Var(X^2Y)=
+E(X^2Y)^2-(E(X^2Y))^2=EX^4EY^2-(EX^2EY)^2=2.1-0=2$$
+
+
+# Questão 5
+
+## a)
+
+$$E\bar{X}=
+E\left(\frac{\sum_{i=1}^n X_i}{n}\right)=
+\frac{1}{n}\sum_{i=1}^n E\left(X_i\right)=
+\frac{1}{n}\sum_{i=1}^n \mu=\mu$$
+
+## b)
+
+$$Var\bar{X}=
+Var\left(\frac{\sum_{i=1}^n X_i}{n}\right)=
+\frac{1}{n^2}\sum_{i=1}^n Var\left(X_i\right)=
+\frac{1}{n^2}\sum_{i=1}^n \sigma^2=\frac{\sigma^2}{n}$$
+
+## c)
+
+$$\begin{aligned}
+E\left[\sum_{i=1}^n (X_i-\bar{X})^2\right]=&
+\sum_{i=1}^n E\left[ (X_i-\bar{X})^2\right]=
+\sum_{i=1}^n E\left[ X_i^2-2X_i\bar{X}+\bar{X}^2\right]=\\
+=&
+\sum_{i=1}^n E[X_i^2]-2E[X_i\bar{X}]+E[\bar{X}^2]=\\
+=&
+\sum_{i=1}^n (\sigma^2+\mu^2)-2E[X_i]E[\bar{X}]+(\frac{\sigma^2}{n}+\mu^2)=\\
+=&
+\sum_{i=1}^n (\sigma^2+\mu^2)-2\mu^2+(\frac{\sigma^2}{n}+\mu^2)=\\
+=&
+\sum_{i=1}^n \sigma^2+\frac{\sigma^2}{n}=
+\sum_{i=1}^n \sigma^2(1+\frac{1}{n})=\\
+=&
+\sigma^2(n+1)
+\end{aligned}
+$$
+
+# Questão 6
+
+## a)
+
+## b)
+
+# Questão 7
+
+$$\begin{aligned}
+    \rho(X_1-X_2,X_2+X_3)=&
+    \frac{Cov(X_1-X_2,X_2+X_3)}{\sqrt{(\sigma_1^2-\sigma_2^2)(\sigma_2^2+\sigma_3^2)}}=
+    \frac{E[(X_1-X_2)(X_2+X_3)]-E[(X_1-X_2)]E[(X_2+X_3)]}{\sqrt{(\sigma_1^2-\sigma_2^2)(\sigma_2^2+\sigma_3^2)}}=\\
+    =&
+    \frac{E[(X_1X_2+X_1X_3-X_2X_2-X_2X_3)]-E[(X_1-X_2)]E[(X_2+X_3)]}{\sqrt{(\sigma_1^2-\sigma_2^2)(\sigma_2^2+\sigma_3^2)}}=\\
+    =&
+    \frac{E[X_1X_2]+E[X_1X_3]-E[X_2X_2]-E[X_2X_3]-(E[X_1]-E[X_2])(E[X_2]+E[X_3])}{\sqrt{(\sigma_1^2-\sigma_2^2)(\sigma_2^2+\sigma_3^2)}}=\\
+    =&
+    \frac{E[X_1X_2]+E[X_1X_3]-E[X_2X_2]-E[X_2X_3]-E[X_1]E[X_2]-E[X_1]E[X_3]+E[X_2]E[X_2]+E[X_2]E[X_3]}{\sqrt{(\sigma_1^2-\sigma_2^2)(\sigma_2^2+\sigma_3^2)}}=
+    \\
+    =&
+    \frac{-E[X_2^2]+E[X_2]^2}{\sqrt{(\sigma_1^2-\sigma_2^2)(\sigma_2^2+\sigma_3^2)}}=
+    \frac{-(E[X_2^2]-E[X_2]^2)}{\sqrt{(\sigma_1^2-\sigma_2^2)(\sigma_2^2+\sigma_3^2)}}=\\
+    =&
+    \frac{-\sigma_2^2}{\sqrt{(\sigma_1^2-\sigma_2^2)(\sigma_2^2+\sigma_3^2)}}
+\end{aligned}$$
+
+# Questão 8
+
+$$\rho(X,Y)=\frac{a}{\sqrt{1.2}}=
+\frac{1}{2}\Rightarrow a=\frac{\sqrt{2}}{2}=Cov(X,Y)$$
+
+Assim
+
+$$\begin{aligned}
+Var(X-2Y)=&
+Var(X)+Var(-2Y)-2Cov(X,-2Y)=\\
+=&
+Var(X)+4Var(Y)+4Cov(X,Y)=\\
+=&
+1+8+4\frac{\sqrt{2}}{2}=\\
+=&
+9+2\sqrt{2}
+\end{aligned}$$
+
+# Questão 9
+
+# Questão 10
+
