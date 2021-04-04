@@ -10,28 +10,24 @@ output:
 
 # Questão 1
 
-$$
-p(x)=
+$$p(x)=
 \begin{cases}
     \frac{1}{N} &,\;x\in\{1,...,N\}\\
     0 &,\;c.c\\
 \end{cases}$$
 
-$$
-EX=\sum_x xp(x)=
+$$EX=\sum_x xp(x)=
 \sum_{x=1}^N \frac{x}{N}=
 \frac{N(N+1)}{2}\frac{1}{N}=
-\frac{N+1}{2}
-$$
+\frac{N+1}{2}$$
 
-$$
-EX^2=\sum_x x^2p(x)=
+$$EX^2=\sum_x x^2p(x)=
 \sum_{x=1}^N \frac{x^2}{N}=
 \frac{N(N+1)(2N+1)}{6}\frac{1}{N}=
-\frac{(N+1)(2N+1)}{6}
-$$
+\frac{(N+1)(2N+1)}{6}$$
 
 Então
+
 $$\begin{aligned}
 VarX&=
 EX^2-(EX)^2=
@@ -63,8 +59,7 @@ $$EX^r=
 \sum_{x=1}^\infty x^r \frac{x^{-(r+2)}}{\sum_{x=1}^\infty x^{-(r+2)}}=
 \sum_{x=1}^\infty \frac{x^{-2}}{\sum_{x=1}^\infty x^{-(r+2)}}=
 \sum_{x=1}^\infty \frac{1}{\sum_{x=1}^\infty x^{-(r+2)+2}}=
-\sum_{x=1}^\infty \frac{1}{\sum_{x=1}^\infty x^{-r}}=
-$$
+\sum_{x=1}^\infty \frac{1}{\sum_{x=1}^\infty x^{-r}}=...$$
 
 # Questão 3
 
@@ -127,8 +122,7 @@ E\left[\sum_{i=1}^n (X_i-\bar{X})^2\right]=&
 \sum_{i=1}^n \sigma^2(1+\frac{1}{n})=\\
 =&
 \sigma^2(n+1)
-\end{aligned}
-$$
+\end{aligned}$$
 
 # Questão 6
 
