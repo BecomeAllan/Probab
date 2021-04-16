@@ -1,0 +1,132 @@
+---
+title: 'Atividade 2'
+author: 'Allan'
+date: '12/03/2021'
+output: 
+    pdf_document: 
+        extra_dependencies: ['mathtools']
+        latex_engine: pdflatex
+---
+
+$$X\sim Poisson(3)$$
+
+$$
+p_X(k)=\begin{cases}
+    e^{-3}\frac{3^k}{k!},& k=0,1,...\\
+    0, & c.c
+\end{cases}
+$$
+
+# a)
+
+Para $x \in \{0,1,2,..\}$
+
++ $\sum_x |x|p_X(x)=\sum_{x=0}^{\infty} xp_X(x)=\sum_{x=0}^{\infty}xe^{-3}\frac{3^x}{x!}$
+
+e para $x \notin \{0,1,2,..\}$
+
++ $\sum_x |x|p_X(x)=\sum_x -x.0=0$
+
+Assim fazendo o **teste da razão** quando $x \in \{0,1,2,..\}$:
+
+$$\begin{aligned}
+\lim_{x \rightarrow \infty}\left|\frac{\frac{(x+1)e^{-3}3^{(x+1)}}{(x+1)!}}{\frac{xe^{-3}3^x}{x!}} \right|
+&=
+\lim_{x \rightarrow \infty}\left|\frac{x!(x+1)e^{-3}3^{(x+1)}}{(x+1)!xe^{-3}3^x} \right|=\\
+&=
+\lim_{x \rightarrow \infty}\left|\frac{(x+1)!e^{-3}3^{(x+1)}}{(x+1)!xe^{-3}3^x} \right|=\\
+&=
+\lim_{x \rightarrow \infty}\left|\frac{3}{x} \right|=\\
+&=
+0<1
+\end{aligned}
+$$
+
+a série converge, ou seja, $\sum_x |x|p_X(x)\in \mathbb{R}$ obtendo uma esperança finita.
+
+# b)
+
+
+$$\begin{aligned}
+    EX
+    =&
+    \sum_x xp_X(x)
+    =
+    \sum_{x=0}^{\infty}xe^{-3}\frac{3^x}{x!}
+    =
+    \sum_{x=1}^{\infty}e^{-3}\frac{3^{(x-1)+1}}{(x-1)!}=
+    \\=&
+    3e^{-3}\sum_{x=1}^{\infty}\frac{3^{x-1}}{(x-1)!}
+    =
+    3e^{-3}\sum_{x=0}^{\infty}\frac{3^{x}}{x!}
+    =
+    3e^{-3}e^3
+    \\=&
+    3
+\end{aligned}$$
+
+Portanto $EX=3$.
+
+# c)
+
+$$Y=\min(X,2)$$
+
+Pelos conjuntos temos que $Y=\min(X,2)\in\{0,1,2\}$ onde $X\in\{0,1,...\}$
+
+Portanto obtemos, utilizando o Teorema 5:
+
+$$\begin{aligned}
+    EY=&
+     \sum_{y=0}^\infty P(Y> y)
+\end{aligned}$$
+
+e para $P(Y> y)=P(\min(X,2)> y)$, assim obtemos:
+
+$$\begin{aligned}
+    P(Y\le y)=P(\min(X,2)\le y)=\begin{cases}
+        P(X\le y)& 0 \le y\le2\\
+    1 & y > 2
+    \end{cases}
+\end{aligned}$$
+
+e concluimos que
+
+$$\begin{aligned}
+    P(Y> y)=P(\min(X,2)> y)=\begin{cases}
+        1- P(X\le y)& 0 \le y \le 2\\
+    1-1 & y > 2
+    \end{cases}
+\end{aligned}$$
+
+
+Assim obtemos que
+
+$$\begin{aligned}
+    EY=&
+    \sum_{y=0}^\infty P(Y> y)=
+    \sum_{y=0}^\infty P(X> y)=
+    \\=&
+    \sum_{y=0}^2  [1-P(X\le y)] + \sum_{y=3}^\infty  (0)=
+    \\=&
+    \sum_{y=0}^2  [1-P(X\le y)]
+    =
+    \sum_{y=0}^2  \left[1-\sum_{x=0}^{y}e^{-3}\frac{3^x}{x!}\right]=
+    \\=&
+    \sum_{y=0}^2  1-\sum_{y=0}^2\sum_{x=0}^{y}\left[e^{-3}\frac{3^x}{x!}\right]=
+    \\=&
+    3 - \left[\sum_{x=0}^{0}\left[e^{-3}\frac{3^x}{x!}\right] +
+    \sum_{x=0}^{1}\left[e^{-3}\frac{3^x}{x!}\right] +
+    \sum_{x=0}^{2}\left[e^{-3}\frac{3^x}{x!}\right]\right]=
+    \\=&
+    3-e^{-3}\left[\frac{3^0}{0!} + \left(\frac{3^0}{0!} + \frac{3^1}{1!}\right)  + \left(\frac{3^0}{0!} + \frac{3^1}{1!} + \frac{3^2}{2!} \right) \right]=
+    \\=&
+    3-e^{-3}\left[\frac{2}{2} + \left(\frac{2}{2} + \frac{6}{2}\right)  + \left(\frac{2}{2} + \frac{6}{2} + \frac{18}{2} \right) \right]=
+    \\=&
+    3-e^{-3}\left[\frac{2+2+6+2+6+18}{2} \right]=
+    \\=&
+    3-e^{-3}\left[\frac{36}{2} \right]=
+    \\=&
+    3-18e^{-3}
+\end{aligned}$$
+
+
