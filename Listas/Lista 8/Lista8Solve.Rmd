@@ -1,0 +1,376 @@
+---
+title: 'Lista 8'
+author: 'Allan'
+date: '15/04/2021'
+lang: "pt-br"
+output: 
+    pdf_document: 
+        extra_dependencies: ['mathtools']
+        latex_engine: pdflatex
+---
+
+# Questão 1
+
+Com a função de distribuição de $X$ como:
+
+$$F_X(x)=\begin{cases}
+  0 &, x<0\\
+  \frac{x}{a} &, 0\le x<a\\
+  1 &,  x\ge a
+\end{cases}$$
+
+Temos $Y=\min(X,a/2)$ no qual a f.d é
+
+$$\begin{aligned}
+  F_Y(y)=&
+  P(Y\le y)=
+  \\=&
+  P(\min(X,a/2) \le y)=
+  \begin{cases}
+    0&, y< 0\\
+    P(X \le y)&, 0\le y< \frac{a}{2}\\
+    1&, y\ge \frac{a}{2}
+  \end{cases}
+\end{aligned}$$
+
+Portanto $F_Y(y)=\begin{cases}
+  0&, y< 0\\
+    \frac{y}{a} &, 0\le y< \frac{a}{2}\\
+    1&, y\ge \frac{a}{2}
+\end{cases}$
+
+
+# Questão 2
+
+Seja $(\Omega, P, \mathbb{A})$, no qual $\Omega=(-10,10)$ e $\mathbb{A}=\mathbb{B}(\Omega)$, $\forall A\in\mathbb{A}$, definimos $X:\Omega\rightarrow\mathbb{R}$ ou $\omega\mapsto X(\omega)$, pelo qual $X$ é uma v.a.
+
+
+$X$ é definida como:
+
+$$X(\omega)=\begin{cases}
+  -5 & \text{se } \;-10<\omega<-5\\
+  \omega & \text{se }\;\;\: -5\le\omega\le5\\
+  5 & \text{se }\;\;\;\;\;\;\; 5\le\omega\le10\\
+\end{cases}$$
+
+$$P(-5\le X\le 5)=1$$
+
+sabendo que $P(A)=\frac{\int_A}{|\Omega|}=\int_A\frac{1}{20}$ e $Im(X)=x=[-5,5]$
+
+
+$$F_X(x)=\begin{cases}
+  0 &, x<-5\\
+  P(\{\omega\in \Omega |X(\omega)\le x \})= &, -5\le x<5\\
+  P(\{\omega\in \Omega |X(\omega)=-5 \})+\\
+  +P(\{\omega\in \Omega |-5< X(\omega)\le x \})= &\\
+  P((-10,-5))+P([-5,x]) &\\
+  1 &, x\ge5\\
+\end{cases}$$
+
+então $F_X(x)=\begin{cases}
+0 &, x<-5\\
+ \int_{-10}^{-5} \frac{du}{20}+ \int_{-5}^x \frac{du}{20} &, -5\le x<5\\
+  1 &, x\ge5\\
+\end{cases}$
+
+
+# Questão 3
+
+## a)
+
+Sabendo $X\sim N(0,1)$ e $f_X(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$ para $x\in\mathbb{R}$, temos
+
+$$Y=\sigma X+ \mu$$
+
+onde $P(X\in\mathbb{R})=1$ e $P(Y\in\mathbb{R})=1$
+
+
++ Para $y\in \mathbb{R}$
+
+$$\begin{aligned}
+  F_Y(y)&=
+  P(Y\le y)=
+  P(\sigma X+ \mu\le y)=
+  P\left( X\le \frac{y-\mu}{\sigma}\right)=
+  F_X\left(\frac{y-\mu}{\sigma}\right)
+\end{aligned}$$
+
+assim
+
+$$\begin{aligned}
+  f_Y(y)=&
+  F_Y'(y)=
+  F_X'\left(\frac{y-\mu}{\sigma}\right).\frac{d}{dy}\left(\frac{y-\mu}{\sigma}\right)=
+  \\=&
+  f_X\left(\frac{y-\mu}{\sigma}\right).\frac{1}{\sigma}=
+  \\=&
+  \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}
+\end{aligned}$$
+
+ou seja, $Y\sim N(\mu,\sigma)$
+
+## b)
+
+Sabendo que $X\sim Cauchy(0,1)$ e $f_X(x)= \frac{1}{\pi\left[1+x^2 \right]}$ para $x\in \mathbb{R}$, temos
+
+$$Y=bX+a$$
+
+onde $P(X\in \mathbb{R})=1$ e $P(Y\in \mathbb{R})=1$
+
+
++ Para $y \in \mathbb{R}$
+
+
+$$F_Y(y)=P(Y\le y)=P(bX+a\le y)=P\left(X\le \frac{y-a}{b}\right)=F_X\left(\frac{y-a}{b} \right)$$
+
+assim
+
+$$\begin{aligned}
+  f_Y(y)=&
+  F_Y'(y)=
+  F_X'\left(\frac{y-a}{b} \right).\frac{d}{dy}\left(\frac{y-a}{b} \right)=
+  \\=&
+  f_X\left(\frac{y-a}{b} \right).\frac{1}{b}=
+  \\=&
+  \frac{1}{\pi b\left[1+\left(\frac{y-a}{b} \right)^2 \right]}
+\end{aligned}$$
+
+ou seja, $Y\sim Cauchy(a,b)$
+
+# Questão 4
+
+Seja $X\sim Exp(\lambda)$, com $\lambda>0$, para $x>0$, temos
+
+$$Y=cX,\;c>0$$
+
+onde $P(X>0)=1$ e $P(Y>0)=1$
+
++ Para $y\le 0$
+
+$$F_Y(y)=P(Y\le y)=P(\phi)=0$$
+
++ Para $y> 0$
+
+$$F_Y(y)=P(Y\le y)=P(cX\le y)=P\left(X\le \frac{y}{c}\right)=F_X\left(\frac{y}{c}\right)$$
+
+
+assim para $y> 0$
+
+$$\begin{aligned}
+  f_Y(y)=&
+  F_Y'(y)=
+  F_X'\left(\frac{y}{c}\right).\frac{d}{dy}\left(\frac{y}{c}\right)=
+  \\=&
+  f_X\left(\frac{y}{c}\right)\frac{1}{c}=
+  \\=&
+  \frac{\lambda}{c}e^{-\frac{\lambda}{c}y}
+\end{aligned}$$
+
+Portanto $Y\sim Exp(\frac{\lambda}{c})$
+
+# Questão 5
+
+Seja $X\sim U(0,1)$, para $x=[0,1]$, temos que
+
+$$Y=X^{\frac{1}{\beta}},\; \beta\neq 0$$
+
+onde $P(0\le X\le 1)=1$
+
+1. Para $\beta>0$, $P(0\le X^{\frac{1}{\beta}} \le 1)=1$
++ onde $y\le 0$
+
+$$\begin{aligned}
+  F_Y(y)=P(Y\le y)=P(\phi)=0
+\end{aligned}$$
+
++ onde $0< y< 1$
+
+$$\begin{aligned}
+  F_Y(y)=P(Y\le y)=P(X^{\frac{1}{\beta}}\le y)=\overbrace{P(X\le y^\beta)}^{\substack{\text{Ao elevar a inegualdade}\\ \text{sob } \beta \text{, o conjunto}\\  0< y< 1 \text{ tbm é elevado}\\ \text{virando } 0^\beta< y^\beta< 1^\beta=\\0< y^\beta< 1\\ \text{onde é importante para}\\ \text{identificar os limites}\\ \text{onde não zera } F_X(x)}}=F_X(y^\beta)
+\end{aligned}$$
+
+$$\begin{aligned}
+  \Rightarrow
+  f_Y(y)=&
+  F'_Y(y)=
+  F'_X(y^\beta).\frac{d}{dy}(y^\beta)=
+  \\=&
+  f_X(y^\beta).\beta y^{\beta-1}=
+  \\=&
+  \frac{1}{1-0}.\beta y^{\beta-1}=
+  \\=&
+  \beta y^{\beta-1}
+\end{aligned}$$
+
+   + onde $y> 1$
+
+$$F_Y(y)=P(Y\le y)=1$$
+
+Portanto para $\beta>0$, $f_Y(y)=\begin{cases}
+  \beta y^{\beta-1}&, 0<y<1\\
+  0&, \; c.c
+\end{cases}$
+
+1. Para $\beta<0$, (Inverte a igualdade) ,$P( X^{\frac{1}{\beta}} > 1)=1$
+
++ onde $y\le 1$
+
+$$F_Y(y)=P(Y\le y)=P(X^{\frac{1}{\beta}}\le y)=\overbrace{P(X\ge y^\beta)}^{y^\beta\ge1^\beta}=1-P(X\le y^\beta)=1-1=0$$
+
++ onde $y>1$
+
+$$F_Y(y)=P(Y\le y)=P(X^{\frac{1}{\beta}}\le y)=\overbrace{P(X\ge y^\beta)}^{y^\beta<1^\beta}=1-P(X\le y^{\beta})=1-F_X(y^\beta)$$
+
+$$\begin{aligned}
+  \Rightarrow
+  f_Y(y)=&
+  F_Y'(y)=
+  -F_X'(y^\beta)\frac{d}{dy}(y^\beta)=
+  \\=&
+  -f_X(y^\beta)\beta y^{\beta-1}=
+  \\=&
+  -\beta y^{\beta-1}
+\end{aligned}$$
+
+Portanto para $\beta<0$, $f_Y(y)=\begin{cases}
+  -\beta y^{\beta-1}&, y>1\\
+  0&,
+\end{cases}$
+
+# Questão 6
+
+Seja $X$ uma v.a com $f_X(x)=f$
+
+## a)
+
+Sob $Y=|X|$, $P(X\in \mathbb{R})=1$ e $P(Y\ge 0)=1$
+
++ Para $y<0$
+
+$$F_Y(y)=P(Y\le y)=P(\phi)=0$$
+
++ Para $y\ge 0$
+$$F_Y(y)=P(Y\le y)=P(|X|\le y)=P(-y\le X\le y)=F_X(y)-F_X(-y)$$
+então
+
+$$\begin{aligned}
+  \Rightarrow
+  f_Y(y)=&F_Y'(y)=F_X'(y).\frac{d}{dy}(y)-F_X'(-y).\frac{d}{dy}(-y)=
+  \\=&
+  f_X(y)+f_X(-y)
+\end{aligned}$$
+
+Portanto $f_Y(y)=\begin{cases}
+  f_X(y)+f_X(-y) &, \;y\ge 0\\
+  0 &, \;y< 0
+\end{cases}$
+
+## b)
+
+Sob $Y=X^2$, $P(X\in \mathbb{R})=1$ e $P(Y\ge 0)=1$
+
++ Para $y<0$
+
+$$F_Y(y)=P(Y\le y)=P(\phi)=0$$
+
++ Para $y\ge 0$
+$$F_Y(y)=P(Y\le y)=P(X^2\le y)=P(-y^\frac{1}{2}\le X\le y^\frac{1}{2})=F_X(y^\frac{1}{2})-F_X(-y^\frac{1}{2})$$
+então
+
+$$\begin{aligned}
+  \Rightarrow
+  f_Y(y)=&
+  F_Y'(y)=
+  F_X'(y^\frac{1}{2}).\frac{d}{dy}(y^\frac{1}{2})-F_X'(-y^\frac{1}{2}).\frac{d}{dy}(-y^\frac{1}{2})=
+  \\=&
+  f_X(y^\frac{1}{2}).\frac{1}{2\sqrt{y}}+f_X(-y^\frac{1}{2}).\frac{1}{2\sqrt{y}}
+  \\=&
+  \frac{1}{2\sqrt{y}}[f_X(y^\frac{1}{2})+f_X(-y^\frac{1}{2})]
+\end{aligned}$$
+
+Portanto $f_Y(y)=\begin{cases}
+  \frac{1}{2\sqrt{y}}[f_X(y^\frac{1}{2})+f_X(-y^\frac{1}{2})]&, y\ge0\\
+  0&, \; c.c
+\end{cases}$
+
+# Questão 7
+
+Seja $X\sim N(0,\sigma^2)$ com $f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{x^2}{2\sigma^2}}$
+
+## a)
+
+Para $Y=|X|$, onde $P(X\in\mathbb{R})=1$ e $P(Y \ge 0)=1$
+
++ Para $y\ge 1$
+$$f_Y(y)=f_X(y)+f_X(-y)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{y^2}{2\sigma^2}}+\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(-y)^2}{2\sigma^2}}$$
+
+Portanto $f_Y(y)=\begin{cases}
+  \frac{2}{\sqrt{2\pi}\sigma}[e^{-\frac{y^2}{2\sigma^2}}]&,y\ge 0\\
+  0&,\;c.c
+\end{cases}$
+
+## b)
+
+Para $Y=X^2$, onde $P(X\in\mathbb{R})=1$ e $P(Y \ge 0)=1$
+
++ Para $y\ge 1$
+  
+$$f_Y(y)=
+\frac{1}{2\sqrt{y}}[f_X(y^\frac{1}{2})+f_X(-y^\frac{1}{2})]=
+\frac{1}{2\sqrt{y}}[\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{y}{2\sigma^2}}+\frac{1}{\sqrt{2\pi}\sigma}e^{\frac{y}{2\sigma^2}}]$$
+
+Portanto $f_Y(y)=\begin{cases}
+  \frac{1}{2\sqrt{2y\pi}}[e^{-\frac{y}{2\sigma^2}}+e^{\frac{y}{2\sigma^2}}]&,y\ge 0\\
+  0&,\;c.c
+\end{cases}$
+
+
+# Questão 8
+
+Seja $X\sim N(\mu,\sigma^2)$, $x\in\mathbb{R}$
+
+para $Y=e^X$
+
+onde $P(X\in\mathbb{R})=1$ e $P(Y>0)=1$
+
++ Para $y>0$
+  
+$$F_Y(y)=P(Y\le y)=P(e^X\le y)=P(X\le\ln(y))=F_X(\ln(y))$$
+
+$$\begin{aligned}
+  \Rightarrow
+  f_Y(y)=&
+  F_Y'(y)=F_X'(\ln(y)).\frac{d}{dy}(\ln(y))=
+  \\=&
+  f_X(\ln(y)).\frac{1}{y}=
+  \\=&
+  \frac{1}{y\sqrt{2\pi}\sigma}e^{-\frac{(\ln(y)-\mu)^2}{2\sigma^2}}
+\end{aligned}$$
+
++ Para $y\le 0$
+  
+$$F_Y(y)=P(Y\le y)=P(\phi)=0$$
+
+Portanto $f_Y(y)=\begin{cases}
+    \frac{1}{y\sqrt{2\pi}\sigma}e^{-\frac{(\ln(y)-\mu)^2}{2\sigma^2}} &, y>0\\
+    0&, y\le0
+\end{cases}$
+
+# Questão 9
+
+
+
+
+# Questão 10
+
+
+# Questão 11
+
+
+
+
+
+
+
+
+
