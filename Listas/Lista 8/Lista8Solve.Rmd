@@ -358,19 +358,154 @@ Portanto $f_Y(y)=\begin{cases}
 
 # Questão 9
 
+????
+Seja $Y=X^2$, $Y\sim Exp(\lambda)$, para $y\ge0$, onde $P(Y\ge0)=1$
 
+$X=Y^\frac{1}{2}$
+
++ Para $X\ge0$
+$$F_X(x)=P(X\le x)=P(Y^\frac{1}{2} \le x)=P(Y\le x^2)=F_Y(x^2)$$
+
+$$\begin{aligned}
+\Rightarrow
+f_X(x)=&
+F_X'(x)=
+F_Y'(x^2).\frac{d}{dx}(x^2)=
+\\=&
+f_Y(x^2).2x=
+\\=&
+\lambda e^{-x^2\lambda}.2x=
+\end{aligned}
+$$
 
 
 # Questão 10
 
+Seja $\Theta\sim U[-\pi/2,\pi/2]$
+
+## a)
+
+$X=tan(\Theta)$, onde $P(X\in \mathbb{R})=1$
+
+$$F_X(x)=P(X\le x)=P(tan(\Theta)\le x) = P(\Theta\le arctan(x))=F_\Theta(arctan(x))$$
+
+$$\begin{aligned}
+  \Rightarrow
+  f_X(x)=&
+  F_X(x)=
+  F_\Theta'(arctan(x)).\frac{d}{dx}(arctan(x))=
+  \\=&
+  f_\Theta(arctan(x)).\frac{d}{dx}(arctan(x))=
+  \\=&
+  \frac{1}{\pi/2-(-\pi/2)}.\frac{1}{1-x^2}=
+  \\=&
+  \frac{1}{\pi(1+x^2)}=
+\end{aligned}$$
+
+Portanto $X\sim Cauchy(0,1)$
+
+## b)
+
+$Y=sin(\Theta)$, onde $P(-1\le Y\le 1)=1$
+
+
++ Para $y\le-1$
+
+$$F_Y(y)=P(Y\le y)=P(\phi) = 0$$
+
++ Para $-1< y<1$
+  
+$$F_Y(y)=P(Y\le y)=P(sin(\Theta)\le y) = P(\Theta\le arcsin(x))=F_\Theta(arcsin(y))$$
+
+$$\begin{aligned}
+  \Rightarrow
+  f_Y(y)=&
+  F_Y(y)=
+  F_\Theta'(arcsin(y)).\frac{d}{dx}(arcsin(y))=
+  \\=&
+  f_\Theta(arcsin(y)).\frac{d}{dy}(arcsin(y))=
+  \\=&
+  \frac{1}{\pi/2-(-\pi/2)}.\frac{1}{\sqrt{1-y^2}}=
+  \\=&
+  \frac{1}{\pi\sqrt{1-y^2}}
+\end{aligned}$$
+
++ Para $y\ge1$
+
+$$F_Y(y)=P(Y\le y)=P(\Omega) = 1$$
+
+Portanto $f_Y(y)=\begin{cases}
+  \frac{1}{\pi\sqrt{1-y^2}}&, -1< y<1\\
+  0&, \; c.c
+\end{cases}$
+
+e $$F_Y(y)=\begin{cases}
+  0&,y<-1\\
+  \int_{-1}^y \frac{arcsin(u)}{\pi}\;du=\frac{arcsin(y)+\pi/2}{\pi} &,-1 \le y <1\\
+  1&, y\ge 1
+\end{cases}$$
+
+
 
 # Questão 11
 
+Seja $X\sim Gama(\alpha, \lambda)$, pra $x>0$, onde $P(X>0)=1$ e 
+
+$$f_X(x)=\frac{\lambda^\alpha}{\Gamma(\alpha)}e^{-\lambda x} x^{\alpha-1}$$
+
+## a)
+
+$Y=cX$, tem como $P(Y>0)=1$
+
++ Para $y>0$
+
+$$F_Y(y)=P(Y\le y)=P(cX\le y) = P(X\le \frac{y}{c})=F_X(\frac{y}{c})$$
+
+$$\begin{aligned}
+  \Rightarrow
+  f_Y(y)=&
+  F_Y'(y)=
+  F_X'(\frac{y}{c}).\frac{d}{dx}(\frac{y}{c})=
+  \\=&
+  f_X(\frac{y}{c}).\frac{1}{c}=
+  \\=&
+  \frac{\lambda^\alpha}{\Gamma(\alpha)}e^{-\lambda \frac{y}{c}} (\frac{y}{c})^{\alpha-1}\frac{1}{c}
+\end{aligned}$$
+
++ Para $y\le 0$
+
+$$F_Y(y)=P(Y\le y)=P(\phi) = 0$$
+
+Portanto $f_Y(y)=\begin{cases}
+    \frac{\lambda^\alpha}{\Gamma(\alpha)}e^{-\lambda \frac{y}{c}} (\frac{y}{c})^{\alpha-1}\frac{1}{c}&, y>0\\
+  0&, \; y\le0
+\end{cases}$
 
 
+## b)
 
+$Y=\sqrt{X}$, tem como $P(Y>0)=1$
 
++ Para $y>0$
 
+$$F_Y(y)=P(Y\le y)=P(\sqrt{X}\le y) = P(X\le y^2)=F_X(y^2)$$
 
+$$\begin{aligned}
+  \Rightarrow
+  f_Y(y)=&
+  F_Y'(y)=
+  F_X'(y^2).\frac{d}{dx}(y^2)=
+  \\=&
+  f_X(y^2).2y=
+  \\=&
+  \frac{\lambda^\alpha}{\Gamma(\alpha)}e^{-\lambda y^2} (y^2)^{\alpha-1}2y
+\end{aligned}$$
 
++ Para $y\le 0$
 
+$$F_Y(y)=P(Y\le y)=P(\phi) = 0$$
+
+Portanto $f_Y(y)=\begin{cases}
+    \frac{\lambda^\alpha}{\Gamma(\alpha)}e^{-\lambda y^2} (y^2)^{\alpha-1}2y&, y>0\\
+  0&, \; y\le0
+\end{cases}$
