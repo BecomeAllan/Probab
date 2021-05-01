@@ -1,0 +1,156 @@
+---
+title: 'Atividade 4'
+author: 'Allan'
+date: '12/03/2021'
+output: 
+    pdf_document: 
+        extra_dependencies: ['mathtools']
+        latex_engine: pdflatex
+---
+
+Seja $X$ uma variável aleatória com função de densidade dada por:
+
+$$f_X(x)=\frac{e^{-x}}{(1+e^{-x})^2},\; x\in\mathbb{R}$$
+
+Obtenha a função de distribuição e a função de densidade de $Y=e^X$
+
+Provando que $X$ é uma V.a, temos que a sua função de densidade é dada por:
+
+$$\begin{aligned}
+    F_X(\infty)=&
+    \int^{\infty}_{-\infty}f_X(x)dx
+    =
+    \int^{0}_{-\infty}\overbrace{\frac{e^{-x}}{(1+e^{-x})^2}}^{u=e^{-x}\Big|^{1}_{\infty}}dx+
+    \int^{\infty}_{0}\overbrace{\frac{e^{-x}}{(1+e^{-x})^2}}^{u=e^{-x}\Big|^{0}_{1}}dx
+    =
+    \\=&
+    \int^{1}_{\infty}\frac{u+1-1}{(1+u)^2}du+
+    \int^{0}_{1}\frac{u+1-1}{(1+u)^2}du=
+    \\=&
+    \int^{1}_{\infty}\frac{1}{(1+u)} + \frac{-1}{(1+u)^2}du+
+    \int^{0}_{1}\frac{1}{(1+u)} + \frac{-1}{(1+u)^2}du=
+    \\=&
+    \left[\ln(1+u) + \frac{1}{1+u}\right]\Big|^{1}_{\infty}+
+    \left[\ln(1+u) + \frac{1}{1+u}\right]\Big|^{0}_{1}=
+    \\=&
+    \left[\ln(2) + \frac{1}{2} - \left(\ln(\infty)+\frac{1}{\infty}\right)\right]+
+    \left[\ln(1) + 1-\left(\ln(2) + \frac{1}{2}\right)\right]=
+    \\=&
+    -\infty\neq 1
+\end{aligned}$$
+Assim $X$ não é uma variável aleatória.
+
+\* Notação: $\lim_{u\rightarrow \infty} u= \infty$
+
+Mas ao fazer $Y=e^X$, obtemos que $y>0,\; \forall x\in \mathbb{R}$
+
+Assim fazemos que:
+
+$$\begin{aligned}
+    F_Y(y)=&
+    P(Y\le y)=P(e^X\le y)=P(\ln(e^X)\le \ln(y))=P(X\le\ln(y))=F_X(\ln(y))
+\end{aligned}$$
+
+e que sua densidade é dada por:
+
+$$\begin{aligned}
+    f_Y(y)=&
+    F_Y(y)'=
+    F_X'(\ln(y))=
+    f_X(\ln(y)).\frac{d}{dy}\ln(y)=
+    \\=&
+    \frac{e^{-\ln(y)}}{(1+e^{-\ln(y)})^2}.\frac{1}{y}=
+    \frac{e^{\ln(y^{-1})}}{(1+e^{\ln(y^{-1})})^2}.\frac{1}{y}=
+    \\=&
+    \frac{y^{-1}}{(1+y^{-1})^2}.\frac{1}{y}=
+    \frac{y^{-2}}{(1+y^{-1})^2}=
+    \\=&
+    \frac{1}{y^2(1+y^{-1})^2}=
+    \frac{1}{y^2(1+2y^{-1} + y^{-2})}=
+    \\=&
+    \frac{1}{y^2+2y + 1}=
+    \\=&
+    \frac{1}{(y+ 1)^2}
+\end{aligned}$$
+
+E provando sua que sua identidade é uma v.a:
+
+Para $y\le0$
+
+$$F_Y(y)=P(Y\le y)=P(\phi)=0$$
+
+Para $y>0$
+
+
+$$\begin{aligned}
+    P(Y\le y)=P(X\le\ln(y))=F_X(\ln(y))
+\end{aligned}$$
+
+e provando sua v.a
+
+$$\begin{aligned}
+    F_Y(\infty)=&
+    \int_{-\infty}^{\infty}f_Y(y)dy=
+    \int_{0}^{\infty}\frac{1}{(y+ 1)^2}dy=
+    \\=&
+    -\left[\frac{1}{y+1}\right]\Big|_{0}^{\infty}=-[0-1]=1
+\end{aligned}$$
+
+Assim sua função de distribuição é dada por:
+
+Para $y>0$
+$$\begin{aligned}
+    F_Y(y)=&
+    \int_{-\infty}^{y}f_Y(u)du=
+    \int_{0}^{y}\frac{1}{(u+ 1)^2}du=
+    \\=&
+   -\left[\frac{1}{u+1}\right]\Big|_{0}^{y}=-\left[0-\frac{1}{y+1}\right]=\frac{1}{y+1}
+\end{aligned}$$
+
+Então
+$$F_Y(y)=\begin{cases}
+    0&, y\le0\\
+    \frac{1}{y+1}&, y>0\\
+\end{cases}$$
+
+
+# Questão-Extra
+
+$$F_X(x)=\begin{cases}
+    0&,  x<0\\
+    \frac{x}{a}&, 0\le x<a\\
+    1&,  x\ge a\\
+\end{cases} \; e f_X(x)=\begin{cases}
+    0&,  x<0\\
+    \frac{1}{a}&, 0\le x<a\\
+    1&,  x\ge a\\
+\end{cases}$$
+
+$$F_Y(y)=\begin{cases}
+    0&,  y<0\\
+    \frac{y}{b}&, 0\le y<b\\
+    1&,  y\ge b\\
+\end{cases} \; e f_X(x)=\begin{cases}
+    0&,  y<0\\
+    \frac{1}{b}&, 0\le y<b\\
+    1&,  y\ge b\\
+\end{cases}$$
+
+$$f_{X,Y}(x,y)=
+f_X(x).f_Y(y)=\begin{cases}
+\frac{1}{ab}&,0\le x<a, 0\le y<b\\
+0&,\;c.c
+\end{cases}$$
+
+Então a
+$$\begin{aligned}
+    P(X<Y)=&P(X\le Y,Y\in \mathbb{R})=F_{X,Y}(y,\mathbb{R})=
+    \\=&
+    \int_0^b\int_0^y\frac{1}{ab}dxdy=\int_0^b\frac{y}{ab}dy=
+    \\=&
+    \frac{y^2}{2ab}\Big|_0^b=\frac{b^2}{2ab}
+    \\=&
+    \frac{b}{2a}
+\end{aligned}$$
+
+Portanto, a probabilidade do ônibus A chegar antes de B, é a razão do tempo máximo de B sob 2 vezes o tempo máximo de A. Ou seja, para $0 < a\le b$, no qual a é o tempo máximo do ônibus A chegar e o mesmo para b sobre o ônibus B, então esta probabilidade é pelo menos 0.5 vezes maior que de B. Em outras palavras, a probabilidade de A chegar antes de B é de pelo menos 50%.
