@@ -1,0 +1,221 @@
+---
+title: 'Lista 10'
+author: 'Allan'
+date: '15/04/2021'
+lang: "pt-br"
+output: 
+    pdf_document: 
+        extra_dependencies: ['mathtools']
+        latex_engine: pdflatex
+---
+
+# Questão 1
+
+
+$$\begin{aligned}
+  EZ=&
+  \int_{0}^{\infty} \int_{0}^{\infty} \frac{y}{x} f_{X,Y}(x,y)dxdz
+  \\=&
+  ...
+\end{aligned}$$
+
+# Questão 2
+
+$X\sim \Chi^2(n)=Gamma(n/2,1/2)$
+
+Seja $Y=\sqrt{X}$
+
+$P(X>0)=P(Y>0)=1$
+
+Temos que
+
+$$F_Y(y)=\int_0^y f_Y(u)du=\int_0^{y^2}f_X(x)dx=F_X(y^2)$$
+
+assim $$f_y(y)=f_X(y^2)2y$$
+
+Então
+
+$$\begin{aligned}
+  EY=&
+  \int_0^{\infty}
+  f_X(y^2)2y^2 dy=...
+\end{aligned}$$
+
+ou
+
+$$\begin{aligned}
+  EY=&
+  \int_0^{\infty}
+  \sqrt{x}
+  f_X(x) dx=...
+\end{aligned}$$
+
+
+# Questão 3
+
+$U_1=U_2\sim Exp(\lambda)$
+
+$P(U_1>0)=P(U_2>0)=1$
+
+Para $Y=\max\{U_1,U_2\}$, $P(Y>0)=1$
+
+
+$$\begin{aligned}
+  F_Y(y)=P(\max\{U_1,U_2\} \le y)=&
+  P(U_1 \le y, U_1>U_2)+ P(U_2 \le y, U_2>U_1)=
+  \\=&
+  P(U_1 \le y, U_2<y)+ P(U_2 \le y, U_1<y)=
+  \\=&
+  P(U_1 \le y)P(U_2\le y)+ P(U_2 \le y)P(U_1\le y)=
+  \\=&
+  2P(U_1 \le y)P(U_2\le y)=
+  \\=&
+  2F_{U_1}(y)F_{U_2}(y)
+  \\=&
+  2F_{U_1}(y)^2
+\end{aligned}$$
+
+assim $f_Y(y)=4F_{U_1}(y)f_{U_1}(y)$
+
+Então
+
+$$\begin{aligned}
+  f_Y(y)=&
+  4
+  e^{-\lambda y}\lambda
+  \int_{0}^{y}
+   e^{-\lambda u_1}\lambda du_1=
+   -4
+   e^{-2\lambda y}
+\end{aligned}$$
+
+$$\begin{aligned}
+  EY=&
+  \int_{0}^{\infty}-4ye^{-2\lambda y}dy
+\end{aligned}$$
+
+# Questão 4
+
+$$\begin{aligned}
+  EX=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} sen\theta f_\Theta(\theta)d\theta
+\end{aligned}$$
+
+# Questão 5
+
+## a)
+
+$$\begin{aligned}
+  E|X|=\int_{-\infty}^{\infty} |x| f_X(x)dx
+\end{aligned}$$
+
+## b)
+
+$$\begin{aligned}
+  EX^2=\int_{-\infty}^{\infty} x^2 f_X(x)dx
+\end{aligned}$$
+
+# Questão 6
+
+$$EY=\int_{-\infty}^{\infty} y \int_{-\infty}^{\infty} f_{X,Y}(x,y)dxdy$$
+
+$$EXY= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} xy f_{X,Y}(x,y)dxdy$$
+
+$Cov(X,Y)=E(XY)-EYEX$
+
+$\rho = \frac{Cov(X,Y)}{\sigma_X \sigma_Y}$
+
+# Questão 7
+
+$P(Y>0)=P(X\in\mathbb{R})=P(Z\in\mathbb{R})=1$
+
+$$\begin{aligned}
+  EXY=\int_{0}^{\infty} \int_{-\infty}^{\infty} xy f_X(x)f_Y(y) dx dy
+\end{aligned}$$
+
+# Questão 8
+
+$$\begin{aligned}
+  \rho(X-\rho Y,Y)=&
+  \frac{E((X-\rho Y )Y)-E(X-\rho Y)E(Y)}{\sigma_{X-\rho Y }\sigma_Y}=
+  \\=&
+  \frac{E(XY-\rho YY )}{1-\rho^2}=
+  \\=&
+  \frac{E(XY)-\rho E(Y^2 )}{1-\rho^2}=
+  \\=&
+  \frac{E(XY)-1}{1-\rho^2}=0
+\end{aligned}$$
+
+# Questão 9
+
+$$\int_b^ae^{tx}\frac{1}{a-b}dx=\frac{1}{a-b}\frac{e^{ta}-e^{tb}}{t}$$
+
+# Questão 10
+
+## a)
+
+$$M_x(t)=\sum_{k=0}^{n}{n \choose k} e^{tk}p^k(1-p)^{n-k}$$
+
+## b)
+
+$$M_x(t)=\sum_{k=0}^{\infty} e^{tk}\frac{e^\lambda \lambda^k}{k!}$$
+
+# Questão 11
+
+## a)
+
+$$M_x(t)=\int_{-\infty}^{\infty} e^{tx} f_X(x)dx$$
+
+## b)
+
+$$M_x(t)=\int_{-\infty}^{\infty} e^{tx} \frac{1}{2} e^{|x|}dx$$
+
+# Questão 12
+
+# Questão 13
+
+## a)
+
+$$ES_n=n\mu \rightarrow E\bar{X}=\frac{ES_n}{n}=\mu$$
+
+$$VarS_n=n\sigma^2 \rightarrow Var\bar{X}=Var(\frac{S_n}{n})=\frac{1}{n^2}Var(S_n)=\frac{\sigma^2}{n}$$
+
+## b)
+
+
+
+$$\begin{aligned}
+  P(|\bar{X}-\mu|\le \frac{\sigma}{10})&\ge 0.95\\
+  P(|\bar{X}-\mu|\ge \frac{\sigma}{10})&\le 0.05\\
+  \frac{Var\bar{X}}{\frac{\sigma}{10}} &\le 0.05\\
+  \frac{\sigma^2 10}{n\sigma} &\le 0.05\\
+  \frac{\sigma 10}{0.05} &\le n\\
+   n&\ge  200\sigma\\
+\end{aligned}$$
+
+# Questão 14
+
+## a)
+
+$$P(X >85) \le \frac{75}{85}=0.88$$
+
+## b)
+
+$$\begin{aligned}
+  P(65 < X <85) =& 
+  P(65 -75 < X-75 <85-75)=
+  \\=&
+  P(-10<X-75<10)
+  \\=&
+  P(|X-75|<10)
+  \\=&
+  1-P(|X-75|\ge 10)\le\frac{25}{100}
+  \\=&
+  P(|X-75|\ge 10)\ge1-\frac{25}{100}
+  \\=&
+  P(|X-75|\ge 10)\ge 0.75
+\end{aligned}$$
+
+# Questão 15
+
+$$P(|S_{100}-100|\le 5)=2P(Z \le \frac{105-97}{10 \;0.1}) -1$$
+
