@@ -21,7 +21,7 @@ $$\begin{aligned}
 
 # Questão 2
 
-$X\sim \Chi^2(n)=Gamma(n/2,1/2)$
+$X\sim X^2(n)=Gamma(n/2,1/2)$
 
 Seja $Y=\sqrt{X}$
 
